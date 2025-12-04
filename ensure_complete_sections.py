@@ -1,78 +1,37 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Harmony - Developer Perumahan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Merriweather', serif; }
-    </style>
-</head>
-<body class="bg-stone-50 text-stone-800">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState } = React;
+#!/usr/bin/env python3
+"""
+Ensure all React files have complete sections (Benefits, Preview, Testimonials, Pricing) as JSX
+"""
+import re
+from pathlib import Path
 
-        const DeveloperPerumahan = () => {
-            return (
-                <div className="min-h-screen">
-                    {/* Nav */}
-                    <nav className="py-6 px-6 bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
-                        <div className="container mx-auto flex justify-between items-center">
-                            <div className="text-2xl font-bold text-green-800 flex items-center gap-2">
-                                <span className="text-3xl">🏡</span> Green Harmony
-                            </div>
-                            <div className="hidden md:flex gap-8 text-sm font-bold text-stone-500">
-                                <a href="#" className="hover:text-green-800">Tipe Rumah</a>
-                                <a href="#" className="hover:text-green-800">Fasilitas</a>
-                                <a href="#" className="hover:text-green-800">Lokasi</a>
-                                <a href="#" className="hover:text-green-800">Simulasi KPR</a>
-                            </div>
-                            <button className="bg-green-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-900 transition-colors">
-                                Download Brosur
-                            </button>
-                        </div>
-                    </nav>
+def has_section_in_jsx(content, section_type):
+    """Check if section exists as JSX in React component"""
+    patterns = {
+        'benefit': r'id=["\']benefits["\'].*?className|benefit.*?className|keuntungan.*?className',
+        'preview': r'id=["\']preview["\'].*?className|preview.*?className|galeri.*?className',
+        'testimonials': r'id=["\']testimonials["\'].*?className|testimonial.*?className|kata.*?mereka.*?className',
+        'pricing': r'id=["\']pricing["\'].*?className|pricing.*?className|harga.*?className|paket.*?className'
+    }
+    pattern = patterns.get(section_type, '')
+    if not pattern:
+        return False
+    
+    # Check if it's inside React component (after return statement)
+    return_match = re.search(r'return\s*\(', content)
+    if return_match:
+        component_content = content[return_match.end():]
+        # Find component end
+        component_end = re.search(r'\)\s*;\s*}\s*;\s*(const\s+root|ReactDOM)', component_content)
+        if component_end:
+            component_content = component_content[:component_end.start()]
+            return bool(re.search(pattern, component_content, re.IGNORECASE | re.DOTALL))
+    return False
 
-                    {/* Hero */}
-                    <header className="relative h-[700px] flex items-center">
-                        <div className="absolute inset-0 z-0">
-                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
-                        </div>
-                        <div className="container mx-auto px-6 relative z-10 text-white">
-                            <div className="max-w-2xl">
-                                <div className="inline-block bg-green-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                                    Hunian Asri & Modern
-                                </div>
-                                <h1 className="text-5xl md:text-7xl mb-8 leading-tight">
-                                    Temukan Ketenangan <br/> di Tengah Kota.
-                                </h1>
-                                <p className="text-xl text-stone-200 mb-10 leading-relaxed">
-                                    Kawasan hunian eksklusif dengan konsep eco-green living. Dilengkapi fasilitas premium dan akses mudah ke pusat bisnis.
-                                </p>
-                                <div className="flex gap-4">
-                                    <button className="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors shadow-lg">
-                                        Lihat Virtual Tour 360°
-                                    </button>
-                                    <button className="b                           </div>
-                        </div>
-                    </header>
-
-                    {/* Tipe Rumah */}
-                    <section className="py-24 px-6 bg-white">
-                        <div className="container mx-auto">
-                            <div className="text-center mb-16">
-                                <h2 className="text-4xl font-bold text-stone-800 mb-4">Pilihan Tipe Rumah</h2>
-                                <p className="text-stone-500">Desain modern minimalis dengan sirkulasi udara optimal.</p>
-                            
-                                        {/* Benefits Section */}
+def get_jsx_section_template(section_type):
+    """Get JSX template for section"""
+    templates = {
+        'benefit': '''                    {/* Benefits Section */}
                     <section id="benefits" className="py-20 bg-white text-black">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
@@ -109,8 +68,9 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
-                                        {/* Preview Section */}
+                    </section>''',
+        
+        'preview': '''                    {/* Preview Section */}
                     <section id="preview" className="py-20 bg-gray-50">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
@@ -129,8 +89,9 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
-                                        {/* Testimonials Section */}
+                    </section>''',
+        
+        'testimonials': '''                    {/* Testimonials Section */}
                     <section id="testimonials" className="py-20 bg-white">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
@@ -185,8 +146,9 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
-                                        {/* Pricing Section */}
+                    </section>''',
+        
+        'pricing': '''                    {/* Pricing Section */}
                     <section id="pricing" className="py-20 bg-gray-50">
                         <div className="container mx-auto px-6">
                             <div className="text-center mb-12">
@@ -250,14 +212,90 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    </div>
-);
-        };
+                    </section>'''
+    }
+    return templates.get(section_type, '')
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<DeveloperPerumahan />);
-    </script>
-</body>
-</html>
+def ensure_sections_in_react(file_path):
+    """Ensure all sections exist as JSX in React component"""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        if 'type="text/babel"' not in content:
+            return False
+        
+        # Find React component return statement
+        return_match = re.search(r'return\s*\(', content)
+        if not return_match:
+            return False
+        
+        # Find component end
+        component_end = re.search(r'\)\s*;\s*}\s*;\s*(const\s+root|ReactDOM)', content)
+        if not component_end:
+            return False
+        
+        component_start = return_match.end()
+        component_content = content[component_start:component_end.start()]
+        
+        # Check which sections are missing
+        missing_sections = []
+        for section_type in ['benefit', 'preview', 'testimonials', 'pricing']:
+            if not has_section_in_jsx(content, section_type):
+                missing_sections.append(section_type)
+        
+        if not missing_sections:
+            return False
+        
+        # Find footer or closing div to insert before
+        footer_match = re.search(r'<footer', component_content, re.IGNORECASE)
+        if footer_match:
+            insert_pos = footer_match.start()
+        else:
+            # Find last closing div before closing parenthesis
+            closing_divs = list(re.finditer(r'</div>', component_content))
+            if closing_divs:
+                insert_pos = closing_divs[-1].start()
+            else:
+                insert_pos = len(component_content) - 10
+        
+        # Insert missing sections
+        sections_to_add = []
+        for section_type in missing_sections:
+            template = get_jsx_section_template(section_type)
+            if template:
+                sections_to_add.append(template)
+        
+        if sections_to_add:
+            new_component = component_content[:insert_pos] + '\n                    ' + '\n                    '.join(sections_to_add) + '\n                    ' + component_content[insert_pos:]
+            new_content = content[:component_start] + new_component + content[component_end.start():]
+            
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            return True
+        
+        return False
+    except Exception as e:
+        print(f"Error processing {file_path.name}: {str(e)}")
+        return False
+
+def main():
+    """Main function"""
+    lp_dir = Path('/www/wwwroot/portfolio.irvandoda.my.id/LP')
+    
+    html_files = [f for f in lp_dir.glob('*.html') if 'type="text/babel"' in f.read_text(encoding='utf-8')]
+    
+    print(f"🔧 Ensuring complete sections in {len(html_files)} React files...\n")
+    
+    fixed = 0
+    for html_file in html_files:
+        if ensure_sections_in_react(html_file):
+            print(f"✅ Added missing sections to {html_file.name}")
+            fixed += 1
+    
+    print(f"\n✨ Updated {fixed}/{len(html_files)} files")
+
+if __name__ == '__main__':
+    main()
 

@@ -26,7 +26,289 @@
             const handleScroll = () => setScrolled(window.scrollY > 50);
             window.addEventListener('scroll', handleScroll);
             return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+            }, []
+                    
+    </section> */}
+                    <!-- Benefits Section -->
+    <section id="benefits" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keunggulan Kami</h2>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Mengapa memilih layanan kami? Berikut keunggulan yang kami tawarkan.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+                <div className="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Profesional</h3>
+                    <p className="text-gray-600">Tim berpengalaman dan terpercaya dalam memberikan layanan terbaik.</p>
+                </div>
+                <div className="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth=r justify-center mb-4">
+                        <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ g hover:shadow-xl transition-all">
+            </div>
+        </div>
+    </section> */}
+                    <!-- Preview Section -->
+    <section id="preview" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lihat Hasil Kami</h2>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Galeri hasil kerja kami yang telah membantu banyak klien.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Preview 1" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Preview 2" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Preview 3" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+            </div>
+        </div>
+    </section>
+                    );
+
+            return (
+                <div className="min-h-screen">
+                    <nav className={`fixed w-full z-50 py-6 px-8 transition-all ${scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur' : 'bg-transparent'}`}>
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl serif text-amber-300 tracking-widest">LUXE</div>
+                            <div className="hidden md:flex gap-10 text-xs uppercase tracking-[0.3em] text-white/70">
+                                <a href="#" className="hover:text-amber-300 transition-colors">Collections</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Master Perfumers</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Boutique</a>
+                            </div>
+                            <button className="border border-amber-300 text-amber-300 px-6 py-2 text-xs uppercase tracking-widest hover:bg-amber-300 hover:text-black transition-all">
+                                Discover
+                            </button>
+                        </div>
+                    </nav>
+
+                    <header className="h-screen flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=for0 text-center max-w-3xl px-6">
+                            <p className="serif text-amber-300 text-lg mb-6 tracking-widest">Haute Parfumerie</p>
+                            <h1 className="text-6xl md:text-8xl serif mb-8 leading-tight">
+                                Signature <br/> <span className="text-amber-300">Scents</span>
+                            </h1>
+                            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+       le is a work of art, each scent a masterpiece.
+                            </p>
+                            <button className="border-b border-amber-300 pb-2 text-sm uppercase tracking-[0.3em] hover:text-amber-300 tran00 rounded-lg flex items-center justify-center mb-4">
+                 tColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+  font-bold text-gray-900 mb-2">Cepat & Efisien</h3>
+            </div>
+        </div>
+    </section>
+
+    
+
+                                        {/* Testimonials Section */}
+                    <section id="testimonials" className="py-20 bg-white">
+                        <div className="container mx-auto px-6">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Apa Kata Mereka</h2>
+                                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Testimoni dari klien yang telah menggunakan layanan kami.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-700 mb-4 italic">"Layanan yang sangat memuaskan! Hasilnya sesuai ekspektasi dan prosesnya cepat."</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">AB</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Ahmad Budi</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-700 mb-4 italic">"Sangat profesional dan detail. Saya sangat puas dengan hasilnya!"</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">SD</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Sari Dewi</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-700 mb-4 italic">"Pelayanan sangat baik dan hasilnya melebihi ekspektasi. Highly recommended!"</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">RP</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Rudi Pratama</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                                        {/* Pricing Section */}
+                    <section id="pricing" className="py-20 bg-gray-50">
+                        <div className="container mx-auto px-6">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Paket & Harga</h2>
+                                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pilih paket yang sesuai dengan kebutuhan Anda.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                                <div className="bg-white p-8 rounded-xl shadow-lg">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Paket Basic</h3>
+                                    <div className="text-3xl font-bold text-gray-900 mb-6">Rp 500.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Fitur dasar</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Support email</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">Pilih Paket</button>
+                                </div>
+                                <div className="bg-blue-600 text-white p-8 rounded-xl shadow-xl transform scale-105 relative">
+                                    <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-3 py-1 rounded-bl-lg rounded-tr-xl text-xs font-bold">POPULER</div>
+                                    <h3 className="text-xl font-bold mb-4">Paket Premium</h3>
+                                    <div className="text-3xl font-bold mb-6">Rp 1.000.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Semua fitur Basic</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Support prioritas</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Update gratis</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-white text-blue-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">Pilih Paket</button>
+                                </div>
+                                <div className="bg-white p-8 rounded-xl shadow-lg">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Paket Enterprise</h3>
+                                    <div className="text-3xl font-bold text-gray-900 mb-6">Rp 2.000.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Semua fitur Premium</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Custom development</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Dedicated support</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">Pilih Paket</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                        <div className="container mx-auto">
+                            <p className="serif text-amber-300 text-2xl mb-6 tracking-widest">LUXE</p>
+                            <p>123 Perfume Street, Paris • +33 1 23 45 67 89</p>s">
+                                        irvandoda.my.id
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                                {/* Credit Footer */}
+                            <div className="border-t border-gray-200/30 mt-8 pt-8">
+                                <div className="container mx-auto px-6">
+                                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            </div>
+        </div>
+    </section> */}
+                    <!-- Benefits Section -->
+    <section id="benefits" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keunggulan Kami</h2>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Mengapa memilih layanan kami? Berikut keunggulan yang kami tawarkan.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+                <div className="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Profesional</h3>
+                    <p className="text-gray-600">Tim berpengalaman dan terpercaya dalam memberikan layanan terbaik.</p>
+                </div>
+                <div className="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Cepat & Efisien</h3>
+                    <p className="text-gray-600">Proses yang cepat tanpa mengorbankan kualitas hasil kerja.</p>
+                </div>
+                <div className="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ g hover:shadow-xl transition-all">
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section> */}
+                    <!-- Preview Section -->
+    <section id="preview" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lihat Hasil Kami</h2>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Galeri hasil kerja kami yang telah membantu banyak klien.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Preview 1" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Preview 2" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Preview 3" className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+            </div>
+        </div>
+    </section>
+                    );
 
             return (
                 <div className="min-h-screen">
@@ -59,91 +341,138 @@
                             </p>
                             <button className="border-b border-amber-300 pb-2 text-sm uppercase tracking-[0.3em] hover:text-amber-300 transition-colors">
                                 Explore Collection
-                            </button>
-                        </div>
-                    </header>
+                   n-100 rounded-lg flex items-center justify-center mb-4">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <section className="py-32 px-8 bg-[#1a1a1a]">
-                        <div className="container mx-auto">
-                            <h2 className="text-4xl serif text-center mb-20">Our Signature Scents</h2>
-                            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-                                {[
-                                    { name: "Midnight Rose", notes: "Rose, Oud, Vanilla", price: "$280" },
-                                    { name: "Ocean Breeze", notes: "Bergamot, Sea Salt, Musk", price: "$250" },
-                                    { name: "Royal Amber", notes: "Amber, Spice, Leather", price: "$320" }
-                                ].map((scent, i) => (
-                                    <div key={i} className="text-center group">
-                                        <div className="h-64 bg-gray-800 rounded-sm mb-6 group-hover:bg-gray-700 transition-colors"></div>
-                                        <h3 className="serif text-2xl mb-2 text-amber-300">{scent.name}</h3>
-                                        <p className="text-white/60 text-sm mb-4">{scent.notes}</p>
-                                        <p className="text-white font-bold">{scent.price}</p>
+    
+
+                                        {/* Testimonials Section */}
+                    <section id="testimonials" className="py-20 bg-white">
+                        <div className="container mx-auto px-6">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Apa Kata Mereka</h2>
+                                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Testimoni dari klien yang telah menggunakan layanan kami.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
                                     </div>
-                                ))}
+                                    <p className="text-gray-700 mb-4 italic">"Layanan yang sangat memuaskan! Hasilnya sesuai ekspektasi dan prosesnya cepat."</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">AB</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Ahmad Budi</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-700 mb-4 italic">"Sangat profesional dan detail. Saya sangat puas dengan hasilnya!"</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">SD</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Sari Dewi</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-gray-50 p-6 rounded-xl">
+                                    <div className="flex text-yellow-400 mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <svg key={i} className="w-5 h-5 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-700 mb-4 italic">"Pelayanan sangat baik dan hasilnya melebihi ekspektasi. Highly recommended!"</p>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-700">RP</div>
+                                        <div>
+                                            <h5 className="font-bold text-gray-900">Rudi Pratama</h5>
+                                            <p className="text-sm text-gray-600">Klien</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
-
-                    
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Keunggulan Kami</h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Mengapa memilih layanan kami? Berikut keunggulan yang kami tawarkan.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Profesional</h3>
-                    <p class="text-gray-600">Tim berpengalaman dan terpercaya dalam memberikan layanan terbaik.</p>
-                </div>
-                <div class="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Cepat & Efisien</h3>
-                    <p class="text-gray-600">Proses yang cepat tanpa mengorbankan kualitas hasil kerja.</p>
-                </div>
-                <div class="p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Terpercaya</h3>
-                    <p class="text-gray-600">Komitmen tinggi terhadap kepuasan dan kepercayaan pelanggan.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Preview Section -->
-    <section id="preview" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lihat Hasil Kami</h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Galeri hasil kerja kami yang telah membantu banyak klien.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Preview 1" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Preview 2" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Preview 3" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-            </div>
-        </div>
-    </section>
-<footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                                        {/* Pricing Section */}
+                    <section id="pricing" className="py-20 bg-gray-50">
+                        <div className="container mx-auto px-6">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Paket & Harga</h2>
+                                <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pilih paket yang sesuai dengan kebutuhan Anda.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                                <div className="bg-white p-8 rounded-xl shadow-lg">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Paket Basic</h3>
+                                    <div className="text-3xl font-bold text-gray-900 mb-6">Rp 500.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Fitur dasar</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Support email</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">Pilih Paket</button>
+                                </div>
+                                <div className="bg-blue-600 text-white p-8 rounded-xl shadow-xl transform scale-105 relative">
+                                    <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-3 py-1 rounded-bl-lg rounded-tr-xl text-xs font-bold">POPULER</div>
+                                    <h3 className="text-xl font-bold mb-4">Paket Premium</h3>
+                                    <div className="text-3xl font-bold mb-6">Rp 1.000.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Semua fitur Basic</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Support prioritas</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span>Update gratis</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-white text-blue-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">Pilih Paket</button>
+                                </div>
+                                <div className="bg-white p-8 rounded-xl shadow-lg">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Paket Enterprise</h3>
+                                    <div className="text-3xl font-bold text-gray-900 mb-6">Rp 2.000.000</div>
+                                    <ul className="space-y-3 mb-8">
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Semua fitur Premium</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Custom development</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                                            <span className="text-gray-600">Dedicated support</span>
+                                        </li>
+                                    </ul>
+                                    <button className="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">Pilih Paket</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
                         <div className="container mx-auto">
                             <p className="serif text-amber-300 text-2xl mb-6 tracking-widest">LUXE</p>
                             <p>123 Perfume Street, Paris • +33 1 23 45 67 89</p>
