@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Library - Irvandoda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        .portfolio-card {
+            transition: all 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+    <!-- Header -->
+    <header class="container mx-auto px-6 py-12 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 fade-in">
+            Portfolio Library
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 fade-in">
+            Kumpulan 100+ Projects Website yang telah dibuat
+        </p>
+        
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
+            <button onclick="filterCategory('all')" class="category-btn active px-6 py-2 rounded-full text-sm font-medium bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition-all">
+                Semua
+            </button>
+            <button onclick="filterCategory('bisnis-umkm')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Bisnis & UMKM
+            </button>
+            <button onclick="filterCategory('profesional')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Profesional
+            </button>
+            <button onclick="filterCategory('produk-fisik')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Produk Fisik
+            </button>
+            <button onclick="filterCategory('produk-digital')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Produk Digital
+            </button>
+            <button onclick="filterCategory('kesehatan')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Kesehatan
+            </button>
+            <button onclick="filterCategory('properti')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Properti
+            </button>
+            <button onclick="filterCategory('edukasi')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Edukasi
+            </button>
+            <button onclick="filterCategory('restoran')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Restoran & FnB
+            </button>
+            <button onclick="filterCategory('travel')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Travel
+            </button>
+            <button onclick="filterCategory('teknologi')" class="category-btn px-6 py-2 rounded-full text-sm font-medium bg-white/10 text-gray-300 hover:bg-white/20 transition-all backdrop-blur-sm">
+                Teknologi
+            </button>
+        </div>
+    </header>
+
+    <!-- Portfolio Grid -->
+    <main class="container mx-auto px-6 pb-20">
+        <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Portfolio items will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 mt-20">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Irvandoda Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio data - 100 Landing Page Projects
+        const portfolios = [
+            // 1-10: Bisnis & UMKM
+            { id: 'kedaikopi', url: '/LP/kedaikopi.html', title: 'Kedai Kopi', category: 'bisnis-umkm', description: 'Landing page untuk kedai kopi dengan desain modern dan responsif.', image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'barbershop', url: '/LP/barbershop.html', title: 'Barber Shop', category: 'bisnis-umkm', description: 'Landing page untuk barber shop dengan booking system.', image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'bengkelmotor', url: '/LP/bengkelmotor.html', title: 'Bengkel Motor', category: 'bisnis-umkm', description: 'Landing page untuk bengkel motor dengan layanan booking.', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'tokokue', url: '/LP/tokokue.html', title: 'Toko Kue & Bakery', category: 'bisnis-umkm', description: 'Landing page untuk toko kue dan bakery dengan katalog produk.', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'laundry', url: '/LP/laundry.html', title: 'Laundry', category: 'bisnis-umkm', description: 'Landing page untuk jasa laundry dengan sistem pemesanan.', image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'barbershoppremium', url: '/LP/barbershop.html', title: 'Barbershop Premium', category: 'bisnis-umkm', description: 'Landing page untuk barbershop premium dengan layanan eksklusif.', image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'fotograferumkm', url: '/LP/fotografer.html', title: 'Fotografer UMKM', category: 'bisnis-umkm', description: 'Landing page untuk jasa fotografi UMKM dan produk.', image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jasadesaingrafis', url: '/LP/desaingrafis.html', title: 'Jasa Desain Grafis', category: 'bisnis-umkm', description: 'Landing page untuk jasa desain grafis dan branding.', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'eventorganizer', url: '/LP/eventorganizer.html', title: 'Event Organizer', category: 'bisnis-umkm', description: 'Landing page untuk jasa event organizer dan perencanaan acara.', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'weddingorganizer', url: '/LP/weddingorganizer.html', title: 'Wedding Organizer', category: 'bisnis-umkm', description: 'Landing page untuk jasa wedding organizer dan pernikahan.', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 11-20: Profesional & Personal Branding
+            { id: 'portfoliokreator', url: '/LP/personal-creator.html', title: 'Portfolio Pribadi Kreator', category: 'profesional', description: 'Landing page portfolio untuk kreator konten dan influencer.', image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'freelancerdeveloper', url: '/LP/freelancer-dev.html', title: 'Freelancer Developer', category: 'profesional', description: 'Landing page untuk freelancer developer dan programmer.', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'freelancerdesigner', url: '/LP/freelancer-designer.html', title: 'Freelancer Designer', category: 'profesional', description: 'Landing page untuk freelancer designer dan UI/UX.', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'konsultanbisnis', url: '/LP/konsultan-bisnis.html', title: 'Konsultan Bisnis', category: 'profesional', description: 'Landing page untuk konsultan bisnis dan strategi.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'konsultanpajak', url: '/LP/konsultan-pajak.html', title: 'Konsultan Pajak', category: 'profesional', description: 'Landing page untuk jasa konsultan pajak dan keuangan.', image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'digitalmarketingexpert', url: '/LP/digital-marketing.html', title: 'Digital Marketing Expert', category: 'profesional', description: 'Landing page untuk ahli digital marketing dan SEO.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'lifecoach', url: '/LP/life-coach.html', title: 'Life Coach', category: 'profesional', description: 'Landing page untuk life coach dan motivator.', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'publicspeaker', url: '/LP/public-speaker.html', title: 'Public Speaker', category: 'profesional', description: 'Landing page untuk public speaker dan trainer.', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'penulisbuku', url: '/LP/penulis-buku.html', title: 'Penulis Buku', category: 'profesional', description: 'Landing page untuk penulis buku dan author.', image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'psikologonline', url: '/LP/psikolog-online.html', title: 'Psikolog Online', category: 'profesional', description: 'Landing page untuk jasa konsultasi psikologi online.', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 21-30: Produk Fisik
+            { id: 'skincare', url: '/LP/skincare.html', title: 'Skincare ', category: 'produk-fisik', description: 'Landing page untuk brand skincare dan produk kecantikan.', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'clothing', url: '/LP/streetwear.html', title: 'Clothing ', category: 'produk-fisik', description: 'Landing page untuk brand clothing streetwear.', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'aksesorishandmade', url: '/LP/handmade-accessories.html', title: 'Aksesoris Handmade', category: 'produk-fisik', description: 'Landing page untuk produk aksesoris handmade.', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'produkherbal', url: '/LP/herbal-product.html', title: 'Produk Herbal', category: 'produk-fisik', description: 'Landing page untuk produk herbal dan suplemen.', image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'parfum', url: '/LP/parfum.html', title: 'Parfum', category: 'produk-fisik', description: 'Landing page untuk brand parfum dan fragrance.', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'sepatucustom', url: '/LP/sepatu-custom.html', title: 'Sepatu Custom', category: 'produk-fisik', description: 'Landing page untuk jasa pembuatan sepatu custom.', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'gadgetaksesoris', url: '/LP/gadget-accessories.html', title: 'Gadget Aksesoris', category: 'produk-fisik', description: 'Landing page untuk aksesoris gadget dan elektronik.', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'furnitureminimalis', url: '/LP/furniture.html', title: 'Furniture Minimalis', category: 'produk-fisik', description: 'Landing page untuk furniture minimalis dan modern.', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'produkbayi', url: '/LP/baby-product.html', title: 'Produk Bayi', category: 'produk-fisik', description: 'Landing page untuk produk bayi dan perlengkapan anak.', image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jamtangan', url: '/LP/jam-tangan.html', title: 'Jam Tangan', category: 'produk-fisik', description: 'Landing page untuk brand jam tangan dan aksesoris waktu.', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 31-40: Produk Digital
+            { id: 'ebook', url: '/LP/ebook.html', title: 'E-book', category: 'produk-digital', description: 'Landing page untuk penjualan e-book dan digital book.', image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'templatenotion', url: '/LP/notion-template.html', title: 'Template Notion', category: 'produk-digital', description: 'Landing page untuk template Notion dan productivity tools.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'templatedesaincanva', url: '/LP/canva-template.html', title: 'Template Desain Canva', category: 'produk-digital', description: 'Landing page untuk template desain Canva dan grafis.', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'onlinecourse', url: '/LP/online-course.html', title: 'Online Course', category: 'produk-digital', description: 'Landing page untuk online course dan pembelajaran digital.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'pluginwordpress', url: '/LP/wordpress-plugin.html', title: 'Plugin WordPress', category: 'produk-digital', description: 'Landing page untuk plugin WordPress dan add-ons.', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'softwaresaas', url: '/LP/saas-software.html', title: 'Software SaaS', category: 'produk-digital', description: 'Landing page untuk software SaaS dan aplikasi cloud.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'digitalpresetslightroom', url: '/LP/lightroom-presets.html', title: 'Digital Presets Lightroom', category: 'produk-digital', description: 'Landing page untuk presets Lightroom dan editing tools.', image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'paketdesainlogo', url: '/LP/logo-package.html', title: 'Paket Desain Logo', category: 'produk-digital', description: 'Landing page untuk paket desain logo dan branding.', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'landingpagewebinar', url: '/LP/webinar-landing.html', title: 'Landing Page Webinar', category: 'produk-digital', description: 'Landing page untuk webinar berbayar dan event digital.', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'membershipkomunitas', url: '/LP/community-membership.html', title: 'Membership Komunitas', category: 'produk-digital', description: 'Landing page untuk membership komunitas dan subscription.', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 41-50: Jasa Kesehatan & Kecantikan
+            { id: 'klinikkecantikan', url: '/LP/klinik-kecantikan.html', title: 'Klinik Kecantikan', category: 'kesehatan', description: 'Landing page untuk klinik kecantikan dan beauty center.', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'terapispijatspa', url: '/LP/spa-therapy.html', title: 'Terapis Pijat & Spa', category: 'kesehatan', description: 'Landing page untuk jasa pijat dan spa therapy.', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'klinikgigi', url: '/LP/dental-clinic.html', title: 'Klinik Gigi', category: 'kesehatan', description: 'Landing page untuk klinik gigi dan dental care.', image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kliniktumbuhkembang', url: '/LP/child-development.html', title: 'Klinik Tumbuh Kembang', category: 'kesehatan', description: 'Landing page untuk klinik tumbuh kembang anak.', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'gympersonaltrainer', url: '/LP/gym-trainer.html', title: 'Gym / Personal Trainer', category: 'kesehatan', description: 'Landing page untuk gym dan personal trainer.', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'ahligizi', url: '/LP/ahli-gizi.html', title: 'Ahli Gizi', category: 'kesehatan', description: 'Landing page untuk konsultan gizi dan nutrisi.', image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'salonkecantikan', url: '/LP/salon.html', title: 'Salon Kecantikan', category: 'kesehatan', description: 'Landing page untuk salon kecantikan dan hair salon.', image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'dermatologist', url: '/LP/dermatologist.html', title: 'Dermatologist', category: 'kesehatan', description: 'Landing page untuk dokter kulit dan dermatologi.', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'klinikkulit', url: '/LP/klinik-kulit.html', title: 'Klinik Kulit', category: 'kesehatan', description: 'Landing page untuk klinik kulit dan perawatan wajah.', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'homecareservice', url: '/LP/home-care.html', title: 'Home Care Service', category: 'kesehatan', description: 'Landing page untuk jasa home care dan perawatan di rumah.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 51-60: Properti & Kontraktor
+            { id: 'kontraktorrumah', url: '/LP/kontraktor-rumah.html', title: 'Kontraktor Rumah', category: 'properti', description: 'Landing page untuk jasa kontraktor rumah dan bangunan.', image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'arsitek', url: '/LP/arsitek.html', title: 'Arsitek', category: 'properti', description: 'Landing page untuk jasa arsitek dan desain bangunan.', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'interiordesigner', url: '/LP/interior-designer.html', title: 'Interior Designer', category: 'properti', description: 'Landing page untuk jasa interior designer dan dekorasi.', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jasarenovasi', url: '/LP/jasa-renovasi.html', title: 'Jasa Renovasi', category: 'properti', description: 'Landing page untuk jasa renovasi rumah dan bangunan.', image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jasakitchenset', url: '/LP/kitchen-set.html', title: 'Jasa Kitchen Set', category: 'properti', description: 'Landing page untuk jasa pembuatan kitchen set dan dapur.', image: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'developerperumahan', url: '/LP/developer-perumahan.html', title: 'Developer Perumahan', category: 'properti', description: 'Landing page untuk developer perumahan dan property.', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kosteksklusif', url: '/LP/kost-eksklusif.html', title: 'Kost Eksklusif', category: 'properti', description: 'Landing page untuk kost eksklusif dan apartemen.', image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'homestayvilla', url: '/LP/homestay-villa.html', title: 'Homestay / Villa', category: 'properti', description: 'Landing page untuk homestay dan villa rental.', image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kontraktorkolamrenang', url: '/LP/kolam-renang.html', title: 'Kontraktor Kolam Renang', category: 'properti', description: 'Landing page untuk jasa pembuatan kolam renang.', image: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'landscapingtaman', url: '/LP/landscaping.html', title: 'Landscaping & Taman', category: 'properti', description: 'Landing page untuk jasa landscaping dan taman.', image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 61-70: Edukasi
+            { id: 'kursusbahasa', url: '/LP/kursus-bahasa-asing.html', title: 'Kursus Bahasa', category: 'edukasi', description: 'Landing page untuk kursus bahasa dan pembelajaran.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'bimbelonline', url: '/LP/bimbel-les-privat.html', title: 'Bimbel Online', category: 'edukasi', description: 'Landing page untuk bimbingan belajar online.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kelasskilldigital', url: '/LP/bootcamp-coding.html', title: 'Kelas Skill Digital', category: 'edukasi', description: 'Landing page untuk kelas coding, desain, dan skill digital.', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'pelatihanumkm', url: '/LP/training-korporat.html', title: 'Pelatihan UMKM', category: 'edukasi', description: 'Landing page untuk pelatihan UMKM dan bisnis.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kursusmusik', url: '/LP/kursus-online.html', title: 'Kursus Musik', category: 'edukasi', description: 'Landing page untuk kursus musik dan instrument.', image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'bootcampdigitalmarketing', url: '/LP/bootcamp-coding.html', title: 'Bootcamp Digital Marketing', category: 'edukasi', description: 'Landing page untuk bootcamp digital marketing.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kelasparenting', url: '/LP/sekolah-online.html', title: 'Kelas Parenting', category: 'edukasi', description: 'Landing page untuk kelas parenting dan pengasuhan anak.', image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'kelaspublicspeaking', url: '/LP/public-speaker.html', title: 'Kelas Public Speaking', category: 'edukasi', description: 'Landing page untuk kelas public speaking dan komunikasi.', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'webinarseries', url: '/LP/webinar-landing.html', title: 'Webinar Series', category: 'edukasi', description: 'Landing page untuk seri webinar dan workshop online.', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'programsertifikasi', url: '/LP/skill-assessment.html', title: 'Program Sertifikasi', category: 'edukasi', description: 'Landing page untuk program sertifikasi dan pelatihan bersertifikat.', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 71-80: Restoran & FnB
+            { id: 'restorankeluarga', url: '/LP/warung-makan.html', title: 'Restoran Keluarga', category: 'restoran', description: 'Landing page untuk restoran keluarga dan casual dining.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'seafoodrestaurant', url: '/LP/restoran-fine-dining.html', title: 'Seafood Restaurant', category: 'restoran', description: 'Landing page untuk restoran seafood dan makanan laut.', image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'streetfood', url: '/LP/food-truck.html', title: 'Street Food ', category: 'restoran', description: 'Landing page untuk brand street food dan makanan kaki lima.', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'franchiseminuman', url: '/LP/cafe-kopi.html', title: 'Franchise Minuman', category: 'restoran', description: 'Landing page untuk franchise minuman dan beverage.', image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'cateringharian', url: '/LP/catering.html', title: 'Catering Harian', category: 'restoran', description: 'Landing page untuk jasa catering harian dan kantor.', image: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'cateringpesta', url: '/LP/catering.html', title: 'Catering Pesta', category: 'restoran', description: 'Landing page untuk jasa catering pesta dan acara.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'restofinedining', url: '/LP/restoran-fine-dining.html', title: 'Resto Fine Dining', category: 'restoran', description: 'Landing page untuk restoran fine dining dan premium.', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'cloudkitchen', url: '/LP/kitchen-set.html', title: 'Cloud Kitchen', category: 'restoran', description: 'Landing page untuk cloud kitchen dan virtual restaurant.', image: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'pakethampers', url: '/LP/bakery-roti.html', title: 'Paket Hampers', category: 'restoran', description: 'Landing page untuk paket hampers lebaran dan natal.', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'brandfrozenfood', url: '/LP/healthy-food.html', title: 'Brand Frozen Food', category: 'restoran', description: 'Landing page untuk brand frozen food dan makanan beku.', image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 81-90: Travel & Transport
+            { id: 'jasatravelantarkota', url: '/LP/travel-agent.html', title: 'Jasa Travel Antar Kota', category: 'travel', description: 'Landing page untuk jasa travel antar kota dan transportasi.', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'paketwisatalokal', url: '/LP/tour-guide.html', title: 'Paket Wisata Lokal', category: 'travel', description: 'Landing page untuk paket wisata lokal dan tour guide.', image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'villabnbbooking', url: '/LP/homestay-villa.html', title: 'Villa/BnB Booking', category: 'travel', description: 'Landing page untuk booking villa dan bed & breakfast.', image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'rentalmobil', url: '/LP/rental-mobil.html', title: 'Rental Mobil', category: 'travel', description: 'Landing page untuk jasa rental mobil dan kendaraan.', image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'rentalmotor', url: '/LP/rental-mobil.html', title: 'Rental Motor', category: 'travel', description: 'Landing page untuk jasa rental motor dan sepeda motor.', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'sewabusparwisata', url: '/LP/airport-transfer.html', title: 'Sewa Bus Pariwisata', category: 'travel', description: 'Landing page untuk sewa bus pariwisata dan transportasi grup.', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'paketumroh', url: '/LP/travel-agent.html', title: 'Paket Umroh', category: 'travel', description: 'Landing page untuk paket umroh dan travel haji.', image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'tiketeventtravel', url: '/LP/travel-blog.html', title: 'Tiket Event/Travel', category: 'travel', description: 'Landing page untuk penjualan tiket event dan travel.', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jasaekspedisilokal', url: '/LP/jasa-pengiriman.html', title: 'Jasa Ekspedisi Lokal', category: 'travel', description: 'Landing page untuk jasa ekspedisi lokal dan pengiriman.', image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'tourguideprofesional', url: '/LP/tour-guide.html', title: 'Tour Guide Profesional', category: 'travel', description: 'Landing page untuk jasa tour guide profesional dan wisata.', image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            
+            // 91-100: Teknologi & Startup
+            { id: 'jasapembuatanwebsite', url: '/LP/tech-consulting.html', title: 'Jasa Pembuatan Website', category: 'teknologi', description: 'Landing page untuk jasa pembuatan website dan development.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'jasapembuatanaplikasi', url: '/LP/mobile-app.html', title: 'Jasa Pembuatan Aplikasi', category: 'teknologi', description: 'Landing page untuk jasa pembuatan aplikasi mobile dan web.', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'startupteknikal', url: '/LP/saas-startup.html', title: 'Startup Teknikal', category: 'teknologi', description: 'Landing page untuk startup teknikal dan produk teknologi.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'aplikasifintech', url: '/LP/fintech.html', title: 'Aplikasi Fintech', category: 'teknologi', description: 'Landing page untuk aplikasi fintech dan keuangan digital.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'sistempos', url: '/LP/saas-software.html', title: 'Sistem POS', category: 'teknologi', description: 'Landing page untuk sistem POS dan point of sale.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'iotproduct', url: '/LP/iot-platform.html', title: 'IoT Product', category: 'teknologi', description: 'Landing page untuk produk IoT dan internet of things.', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'companyprofileteknologi', url: '/LP/tech-consulting.html', title: 'Company Profile Teknologi', category: 'teknologi', description: 'Landing page untuk company profile perusahaan teknologi.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'cybersecurityservice', url: '/LP/cybersecurity.html', title: 'Cybersecurity Service', category: 'teknologi', description: 'Landing page untuk jasa cybersecurity dan keamanan siber.', image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'konsultanclouddevops', url: '/LP/cloud-services.html', title: 'Konsultan Cloud & DevOps', category: 'teknologi', description: 'Landing page untuk konsultan cloud computing dan DevOps.', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' },
+            { id: 'aiautomationagency', url: '/LP/ai-ml.html', title: 'AI Automation Agency', category: 'teknologi', description: 'Landing page untuk AI automation agency dan otomasi bisnis.', image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop', tags: ['HTML', 'Tailwind', 'JS'], date: '2024' }
+        ];
+
+        let activeCategory = 'all';
+
+        // Filter portfolio by category
+        function filterCategory(category) {
+            activeCategory = category;
+            
+            // Update button styles
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                const btnText = btn.textContent.trim();
+                const isActive = (category === 'all' && btnText === 'Semua') ||
+                                (category === 'bisnis-umkm' && btnText === 'Bisnis & UMKM') ||
+                                (category === 'profesional' && btnText === 'Profesional') ||
+                                (category === 'produk-fisik' && btnText === 'Produk Fisik') ||
+                                (category === 'produk-digital' && btnText === 'Produk Digital') ||
+                                (category === 'kesehatan' && btnText === 'Kesehatan') ||
+                                (category === 'properti' && btnText === 'Properti') ||
+                                (category === 'edukasi' && btnText === 'Edukasi') ||
+                                (category === 'restoran' && btnText === 'Restoran & FnB') ||
+                                (category === 'travel' && btnText === 'Travel') ||
+                                (category === 'teknologi' && btnText === 'Teknologi');
+                
+                if (isActive) {
+                    btn.classList.remove('bg-white/10', 'text-gray-300');
+                    btn.classList.add('bg-purple-600', 'text-white', 'shadow-lg');
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('bg-purple-600', 'text-white', 'shadow-lg', 'active');
+                    btn.classList.add('bg-white/10', 'text-gray-300');
+                }
+            });
+
+            // Filter and render portfolios
+            const filtered = activeCategory === 'all' 
+                ? portfolios 
+                : portfolios.filter(p => p.category === activeCategory);
+            
+            renderPortfolios(filtered);
+        }
+
+        // Get category label
+        function getCategoryLabel(category) {
+            const labels = {
+                'all': 'Semua',
+                'bisnis-umkm': 'Bisnis & UMKM',
+                'profesional': 'Profesional',
+                'produk-fisik': 'Produk Fisik',
+                'produk-digital': 'Produk Digital',
+                'kesehatan': 'Kesehatan',
+                'properti': 'Properti',
+                'edukasi': 'Edukasi',
+                'restoran': 'Restoran & FnB',
+                'travel': 'Travel',
+                'teknologi': 'Teknologi'
+            };
+            return labels[category] || category;
+        }
+
+        // Render portfolio cards
+        function renderPortfolios(items) {
+            const grid = document.getElementById('portfolio-grid');
+            
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <p class="text-gray-400 text-xl">Tidak ada portfolio dalam kategori ini.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = items.map(portfolio => `
+                <div class="portfolio-card bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-white/20 fade-in">
+                    <div class="relative h-48 overflow-hidden group">
+                        <a href="${portfolio.url || `/LP/${portfolio.id}.html`}" class="block w-full h-full">
+                            <img  
+                                src="${portfolio.image}" 
+                                alt="${portfolio.title}" 
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Image+Error'"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                        </a>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                ${getCategoryLabel(portfolio.category)}
+                            </span>
+                        </div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span class="bg-white/90 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold">
+                                    Preview
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">${portfolio.title}</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-2">${portfolio.description}</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${portfolio.tags.map(tag => `
+                                <span class="bg-white/10 text-gray-300 px-2 py-1 rounded text-xs">${tag}</span>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400 text-xs">${portfolio.date}</span>
+                            <a 
+                                href="${portfolio.url || `/LP/${portfolio.id}.html`}" 
+                                target="_blank"
+                                class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all inline-flex items-center gap-2"
+                            >
+                                Lihat Project
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+    </div>
+            `).join('');
+        }
+
+        // Initialize
+        renderPortfolios(portfolios);
+    </script>
+</body>
+</html>

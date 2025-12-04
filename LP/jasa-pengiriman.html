@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftSend - Jasa Pengiriman & Kurir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        body { font-family: 'Roboto', sans-serif; }
+    </style>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const JasaPengiriman = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="bg-yellow-500 text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-black flex items-center gap-2">
+                                <span>📦</span> SwiftSend
+                            </div>
+                            <div className="hidden md:flex gap-8 text-sm font-bold">
+                                <a href="#" className="hover:text-yellow-100">Services</a>
+                                <a href="#" className="hover:text-yellow-100">Track</a>
+                                <a href="#" className="hover:text-yellow-100">Pricing</a>
+                                <a href="#" className="hover:text-yellow-100">Contact</a>
+                            </div>
+                            <button className="bg-white text-yellow-600 px-5 py-2 rounded-lg font-black hover:bg-yellow-50 transition-colors">
+                                Send Now
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-6 bg-gradient-to-br from-yellow-400 to-orange-500 text-white">
+                        <div className="container mx-auto flex flex-col md:flex-row items-center gap-16">
+                            <div className="md:w-1/2">
+                                <div className="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-bold mb-6">
+                                    ⚡ Same-Day Delivery Available
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                                    Fast, Reliable <br/> <span className="text-yellow-100">Package Delivery</span>
+                                </h1>
+                                <p className="text-lg text-yellow-100 mb-10 leading-relaxed">
+                                    Express delivery service for documents, packages, and parcels. Same-day, next-day, or scheduled delivery. We get it there, fast and safe.
+                                </p>
+                                <div className="flex gap-4">
+                                    <button className="bg-white text-yellow-600 px-8 py-4 rounded-xl font-black text-lg shadow-xl hover:bg-yellow-50 transition-all">
+                                        Calculate Shipping
+                                    </button>
+                                    <button className="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                                        Track Package
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl shadow-2xl w-full border-4 border-white" />
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Services */}
+                    <section className="py-20 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl font-black text-center mb-16">Our Services</h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { name: "Same-Day", price: "Rp 25rb", desc: "Delivered within 4-6 hours", icon: "⚡" },
+                                    { name: "Next-Day", price: "Rp 15rb", desc: "Delivered the next business day", icon: "📅" },
+                                    { name: "Express", price: "Rp 50rb", desc: "Priority handling, fastest delivery", icon: "🚀" }
+                                ].map((service, i) => (
+                                    <div key={i} className="bg-yellow-50 p-8 rounded-2xl border-2 border-yellow-100 hover:border-yellow-400 transition-all">
+                                        <div className="text-5xl mb-4">{service.icon}</div>
+                                        <h3 className="font-black text-xl mb-2">{service.name}</h3>
+                                        <p className="text-gray-600 mb-4 text-sm">{service.desc}</p>
+                                        <div className="text-2xl font-black text-yellow-600 mb-6">{service.price}</div>
+                                        <button className="w-full bg-yellow-500 text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition-colors">
+                                            Book Now
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Features */}
+                    <section className="py-20 px-6 bg-gray-900 text-white">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl font-black text-center mb-16">Why Choose SwiftSend?</h2>
+                            <div className="grid md:grid-cols-4 gap-8">
+                                {[
+                                    { title: "Real-Time Tracking", icon: "📍" },
+                                    { title: "Insurance Included", icon: "🛡️" },
+                                    { title: "24/7 Support", icon: "📞" },
+                                    { title: "Wide Coverage", icon: "🌍" }
+                                ].map((feature, i) => (
+                                    <div key={i} className="text-center">
+                                        <div className="text-5xl mb-4">{feature.icon}</div>
+                                        <h3 className="font-bold">{feature.title}</h3>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-20 px-6 bg-yellow-500 text-white text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h2 className="text-4xl font-black mb-6">Need to Send Something?</h2>
+                            <p className="text-xl text-yellow-100 mb-10">
+                                Get instant quote and book your delivery in minutes!
+                            </p>
+                            <button className="bg-white text-yellow-600 px-10 py-4 rounded-xl font-black text-lg hover:bg-yellow-50 transition-colors shadow-xl">
+                                Get Quote Now
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 bg-gray-900 text-gray-400 text-sm text-center">
+                        <div className="container mx-auto px-6">
+                            <p className="font-black text-white text-lg mb-2">SwiftSend</p>
+                            <p>&copy; 2024 Delivery Service. Fast. Reliable. Trusted.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<JasaPengiriman />);
+    </script>
+</body>
+</html>
+

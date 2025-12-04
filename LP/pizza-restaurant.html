@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaVille - Authentic Italian Pizza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        body { font-family: 'Roboto', sans-serif; }
+    </style>
+</head>
+<body class="bg-red-50 text-gray-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const PizzaRestaurant = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="bg-red-600 text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-black flex items-center gap-2">
+                                <span>🍕</span> PizzaVille
+                            </div>
+                            <div className="hidden md:flex gap-8 text-sm font-bold">
+                                <a href="#" className="hover:text-red-100">Menu</a>
+                                <a href="#" className="hover:text-red-100">Deals</a>
+                                <a href="#" className="hover:text-red-100">Locations</a>
+                                <a href="#" className="hover:text-red-100">Track Order</a>
+                            </div>
+                            <button className="bg-white text-red-600 px-5 py-2 rounded-lg font-black hover:bg-red-50 transition-colors">
+                                Order Now
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-6 bg-gradient-to-br from-red-500 to-orange-500 text-white">
+                        <div className="container mx-auto text-center max-w-4xl">
+                            <div className="inline-block bg-white/20 backdrop-blur px-4 py-1 rounded-full text-xs font-bold mb-6">
+                                🏆 Best Pizza in Town 2024
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                                Authentic Italian <br/> <span className="text-red-100">Wood-Fired Pizza</span>
+                            </h1>
+                            <p className="text-xl text-red-100 mb-12 leading-relaxed">
+                                Hand-tossed dough, San Marzano tomatoes, fresh mozzarella. Baked in our 900°F wood-fired oven for that perfect crispy crust.
+                            </p>
+                            <div className="flex justify-center gap-4">
+                                <button className="bg-white text-red-600 px-10 py-4 rounded-xl font-black text-lg shadow-xl hover:bg-red-50 transition-all">
+                                    Order Delivery
+                                </button>
+                                <button className="bg-transparent text-white border-2 border-white/30 px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                                    View Menu
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Pizzas */}
+                    <section className="py-20 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl font-black text-center mb-16">Our Signature Pizzas</h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { name: "Margherita", price: "$14", desc: "Tomato, mozzarella, basil, olive oil", img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Pepperoni", price: "$16", desc: "Pepperoni, mozzarella, tomato sauce", img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Quattro Stagioni", price: "$18", desc: "Ham, mushrooms, artichokes, olives", img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((pizza, i) => (
+                                    <div key={i} className="bg-red-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all cursor-pointer group border-2 border-red-100">
+                                        <div className="h-64 overflow-hidden">
+                                            <img src={pizza.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div className="p-6">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <h3 className="font-black text-xl">{pizza.name}</h3>
+                                                <span className="text-red-600 font-black text-lg">{pizza.price}</span>
+                                            </div>
+                                            <p className="text-sm text-gray-600">{pizza.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Process */}
+                    <section className="py-20 px-6 bg-red-600 text-white">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl font-black text-center mb-16">Made Fresh Daily</h2>
+                            <div className="grid md:grid-cols-4 gap-8 text-center">
+                                {[
+                                    { step: "1", title: "Hand-Tossed", icon: "👋" },
+                                    { step: "2", title: "Fresh Toppings", icon: "🍅" },
+                                    { step: "3", title: "Wood-Fired", icon: "🔥" },
+                                    { step: "4", title: "Hot & Ready", icon: "🍕" }
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-4">{item.step}</div>
+                                        <div className="text-4xl mb-3">{item.icon}</div>
+                                        <h3 className="font-bold">{item.title}</h3>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-20 px-6 bg-gray-900 text-white text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h2 className="text-4xl font-black mb-6">Craving Pizza?</h2>
+                            <p className="text-xl text-gray-300 mb-10">
+                                Order now and get 20% off your first order! Free delivery on orders over $25.
+                            </p>
+                            <button className="bg-red-600 text-white px-10 py-4 rounded-xl font-black text-lg hover:bg-red-700 transition-colors shadow-xl">
+                                Order Now - Get 20% Off
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-10 bg-white border-t border-gray-200 text-center text-gray-500 text-sm">
+                        <div className="container mx-auto px-6">
+                            <p className="font-black text-red-600 text-lg mb-2">PizzaVille</p>
+                            <p>&copy; 2024 Authentic Italian Pizza. Made with Passion.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<PizzaRestaurant />);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LittleStars - Klinik Tumbuh Kembang Anak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap');
+        body { font-family: 'Nunito', sans-serif; }
+        h1, h2, h3, .fun-font { font-family: 'Fredoka', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#fffbeb] text-slate-700">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const ChildClinic = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-4 px-6 bg-white shadow-sm sticky top-0 z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl fun-font font-bold text-orange-500 flex items-center gap-2">
+                                <span>⭐</span> LittleStars
+                            </div>
+                            <div className="hidden md:flex gap-6 font-bold text-slate-500 text-sm">
+                                <a href="#" className="hover:text-orange-500">Layanan</a>
+                                <a href="#" className="hover:text-orange-500">Tim Ahli</a>
+                                <a href="#" className="hover:text-orange-500">Fasilitas</a>
+                                <a href="#" className="hover:text-orange-500">Artikel</a>
+                            </div>
+                            <button className="bg-blue-400 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-500 transition-colors">
+                                Hubungi Kami
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-6">
+                        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+                            <div className="md:w-1/2">
+                                <div className="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-sm font-bold mb-6">
+                                    Sahabat Tumbuh Kembang Anak
+                                </div>
+                                <h1 className="text-5xl md:text-6xl fun-font font-bold text-slate-800 mb-6 leading-tight">
+                                    Setiap Anak Adalah <br/> <span className="text-blue-500">Bintang.</span>
+                                </h1>
+                                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                                    Klinik terpadu untuk optimalisasi tumbuh kembang buah hati Anda. Didukung oleh dokter spesialis anak, psikolog, dan terapis berpengalaman.
+                                </p>
+                                <div className="flex gap-4">
+                                    <button className="bg-orange-500 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-orange-600 transition-all">
+                                        Jadwal Konsultasi
+                                    </button>
+                                    <button className="bg-white text-orange-500 border-2 border-orange-500 px-8 py-4 rounded-2xl font-bold hover:bg-orange-50 transition-all">
+                                        Deteksi Dini
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?q=80&w=1000&auto=format&fit=crop" className="rounded-3xl shadow-xl border-8 border-white w-full" />
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Services */}
+                    <section className="py-20 bg-white px-6">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl fun-font font-bold text-center mb-12 text-slate-800">Layanan Kami</h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                <div className="bg-blue-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">🩺</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-blue-600">Dokter Spesialis Anak</h3>
+                                    <p className="text-slate-600 text-sm">Konsultasi kesehatan umum, imunisasi, dan pemantauan nutrisi.</p>
+                                </div>
+                                <div className="bg-pink-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">🧩</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-pink-600">Psikolog Anak</h3>
+                                    <p className="text-slate-600 text-sm">Assesment IQ, konsultasi perilaku, dan kesiapan sekolah.</p>
+                                </div>
+                                <div className="bg-green-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">🗣️</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-green-600">Terapi Wicara</h3>
+                                    <p className="text-slate-600 text-sm">Membantu anak mengatasi keterlambatan bicara dan gangguan bahasa.</p>
+                                </div>
+                                <div className="bg-yellow-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">👐</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-yellow-600">Okupasi Terapi</h3>
+                                    <p className="text-slate-600 text-sm">Melatih kemandirian, motorik halus, dan sensori integrasi.</p>
+                                </div>
+                                <div className="bg-purple-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">🏃</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-purple-600">Fisioterapi Anak</h3>
+                                    <p className="text-slate-600 text-sm">Optimalisasi perkembangan motorik kasar dan fisik anak.</p>
+                                </div>
+                                <div className="bg-orange-50 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                                    <div className="text-5xl mb-4">👪</div>
+                                    <h3 className="text-xl font-bold mb-3 fun-font text-orange-600">Kelas Parenting</h3>
+                                    <p className="text-slate-600 text-sm">Edukasi dan workshop untuk orang tua tentang pengasuhan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-20 px-6 text-center">
+                        <div className="container mx-auto max-w-3xl bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl p-12 text-white shadow-xl">
+                            <h2 className="text-3xl md:text-4xl fun-font font-bold mb-6">Punya Kekhawatiran Tumbuh Kembang?</h2>
+                            <p className="text-lg mb-8 opacity-90">Jangan ragu untuk berkonsultasi. Deteksi dan intervensi dini sangat penting untuk masa depan anak.</p>
+                            <button className="bg-white text-blue-500 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors">
+                                Tanya Admin via WA
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-10 bg-white border-t border-slate-100 text-center text-slate-500 text-sm">
+                        <p>&copy; 2024 LittleStars Clinic. Tumbuh Sehat, Cerdas, dan Ceria.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ChildClinic />);
+    </script>
+</body>
+</html>
+

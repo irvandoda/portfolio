@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Lightroom Presets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Raleway:wght@300;400;600&display=swap');
+        body { font-family: 'Raleway', sans-serif; }
+        h1, h2, h3 { font-family: 'Didact Gothic', sans-serif; }
+        .before-after-container:hover .after-img { opacity: 1; }
+        .after-img { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body class="bg-[#1c1c1c] text-gray-300">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const LightroomPresets = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-8 px-8 flex justify-between items-center absolute w-full z-20">
+                        <div className="text-2xl text-white tracking-[0.2em] uppercase">Lumina</div>
+                        <div className="flex gap-6 text-sm uppercase tracking-widest font-semibold">
+                            <a href="#" className="hover:text-white transition-colors">Shop</a>
+                            <a href="#" className="hover:text-white transition-colors">Bundle</a>
+                            <a href="#" className="hover:text-white transition-colors">Help</a>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="h-screen relative flex items-center justify-center overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover opacity-60" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-[#1c1c1c]/30 via-transparent to-[#1c1c1c]"></div>
+                        </div>
+                        <div className="relative z-10 text-center px-4">
+                            <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider uppercase">Cinematic Tones</h1>
+                            <p className="text-lg text-gray-300 mb-10 max-w-lg mx-auto font-light tracking-wide">
+                                Transform your photos instantly with our professional Lightroom presets. Designed for travel, lifestyle, and portrait photography.
+                            </p>
+                            <button className="border border-white text-white px-10 py-3 uppercase tracking-[0.2em] text-xs font-bold hover:bg-white hover:text-black transition-all">
+                                Shop All Presets
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Before / After Demo (Simulated with hover) */}
+                    <section className="py-20 px-6">
+                        <div className="container mx-auto text-center">
+                            <h2 className="text-3xl text-white mb-12 tracking-wider uppercase">See the Magic</h2>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="group relative cursor-pointer">
+                                    <div className="aspect-[4/5] overflow-hidden rounded-sm relative">
+                                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover filter grayscale contrast-75" />
+                                        <div className="absolute top-4 left-4 bg-black/50 px-2 py-1 text-xs font-bold">BEFORE</div>
+                                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <div className="absolute bottom-4 right-4 bg-white text-black px-2 py-1 text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">AFTER (MOODY VIBE)</div>
+                                    </div>
+                                    <h3 className="mt-4 text-xl text-white">Moody Vibe</h3>
+                                </div>
+                                <div className="group relative cursor-pointer">
+                                    <div className="aspect-[4/5] overflow-hidden rounded-sm relative">
+                                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover filter sepia-[.5]" />
+                                        <div className="absolute top-4 left-4 bg-black/50 px-2 py-1 text-xs font-bold">BEFORE</div>
+                                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <div className="absolute bottom-4 right-4 bg-white text-black px-2 py-1 text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">AFTER (GOLDEN HOUR)</div>
+                                    </div>
+                                    <h3 className="mt-4 text-xl text-white">Golden Hour</h3>
+                                </div>
+                            </div>
+                            <p className="mt-8 text-sm text-gray-500 uppercase tracking-widest">Hover image to see result</p>
+                        </div>
+                    </section>
+
+                    {/* Products */}
+                    <section className="py-20 bg-[#222]">
+                        <div className="container mx-auto px-6">
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { title: "The Master Collection", price: "$49", desc: "All 50+ presets in one pack." },
+                                    { title: "Wanderlust Pack", price: "$19", desc: "10 presets for travel lovers." },
+                                    { title: "Portra 400 Pack", price: "$15", desc: "Vintage film look emulation." }
+                                ].map((item, i) => (
+                                    <div key={i} className="bg-[#1c1c1c] p-8 text-center border border-[#333] hover:border-white transition-colors group cursor-pointer">
+                                        <h3 className="text-2xl text-white mb-2 uppercase tracking-wider">{item.title}</h3>
+                                        <p className="text-gray-500 text-sm mb-6">{item.desc}</p>
+                                        <div className="text-3xl font-light text-white mb-8">{item.price}</div>
+                                        <button className="bg-white text-black w-full py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-gray-200">Add To Cart</button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Features */}
+                    <section className="py-20 px-6 text-center">
+                        <div className="container mx-auto grid md:grid-cols-3 gap-12">
+                            <div>
+                                <div className="text-4xl mb-4">📱</div>
+                                <h4 className="text-white uppercase tracking-widest mb-2 text-sm">Mobile & Desktop</h4>
+                                <p className="text-gray-500 text-sm">Works on free mobile app and desktop Lightroom.</p>
+                            </div>
+                            <div>
+                                <div className="text-4xl mb-4">⚡</div>
+                                <h4 className="text-white uppercase tracking-widest mb-2 text-sm">Instant Download</h4>
+                                <p className="text-gray-500 text-sm">Start editing seconds after purchase.</p>
+                            </div>
+                            <div>
+                                <div className="text-4xl mb-4">🎓</div>
+                                <h4 className="text-white uppercase tracking-widest mb-2 text-sm">Installation Guide</h4>
+                                <p className="text-gray-500 text-sm">Step-by-step video tutorial included.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 border-t border-[#333] text-center text-xs text-gray-600 uppercase tracking-widest">
+                        <p>&copy; 2024 Lumina Presets. Designed for creators.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<LightroomPresets />);
+    </script>
+</body>
+</html>
+

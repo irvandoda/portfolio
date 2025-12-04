@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxePerfume - Luxury Perfumery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap');
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Cinzel', serif; }
+    </style>
+</head>
+<body class="bg-[#1a1a1a] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const Parfum = () => {
+            const [scrolled, setScrolled] = useState(false);
+
+            useEffect(() => {
+            const handleScroll = () => setScrolled(window.scrollY > 50);
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            return (
+                <div className="min-h-screen">
+                    <nav className={`fixed w-full z-50 py-6 px-8 transition-all ${scrolled ? 'bg-[#1a1a1a]/95 backdrop-blur' : 'bg-transparent'}`}>
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl serif text-amber-300 tracking-widest">LUXE</div>
+                            <div className="hidden md:flex gap-10 text-xs uppercase tracking-[0.3em] text-white/70">
+                                <a href="#" className="hover:text-amber-300 transition-colors">Collections</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Master Perfumers</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Boutique</a>
+                            </div>
+                            <button className="border border-amber-300 text-amber-300 px-6 py-2 text-xs uppercase tracking-widest hover:bg-amber-300 hover:text-black transition-all">
+                                Discover
+                            </button>
+                        </div>
+                    </nav>
+
+                    <header className="h-screen flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover opacity-40" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+                        </div>
+                        <div className="relative z-10 text-center max-w-3xl px-6">
+                            <p className="serif text-amber-300 text-lg mb-6 tracking-widest">Haute Parfumerie</p>
+                            <h1 className="text-6xl md:text-8xl serif mb-8 leading-tight">
+                                Signature <br/> <span className="text-amber-300">Scents</span>
+                            </h1>
+                            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+                                Masterfully crafted fragrances that tell your story. Each bottle is a work of art, each scent a masterpiece.
+                            </p>
+                            <button className="border-b border-amber-300 pb-2 text-sm uppercase tracking-[0.3em] hover:text-amber-300 transition-colors">
+                                Explore Collection
+                            </button>
+                        </div>
+                    </header>
+
+                    <section className="py-32 px-8 bg-[#1a1a1a]">
+                        <div className="container mx-auto">
+                            <h2 className="text-4xl serif text-center mb-20">Our Signature Scents</h2>
+                            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                                {[
+                                    { name: "Midnight Rose", notes: "Rose, Oud, Vanilla", price: "$280" },
+                                    { name: "Ocean Breeze", notes: "Bergamot, Sea Salt, Musk", price: "$250" },
+                                    { name: "Royal Amber", notes: "Amber, Spice, Leather", price: "$320" }
+                                ].map((scent, i) => (
+                                    <div key={i} className="text-center group">
+                                        <div className="h-64 bg-gray-800 rounded-sm mb-6 group-hover:bg-gray-700 transition-colors"></div>
+                                        <h3 className="serif text-2xl mb-2 text-amber-300">{scent.name}</h3>
+                                        <p className="text-white/60 text-sm mb-4">{scent.notes}</p>
+                                        <p className="text-white font-bold">{scent.price}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                        <div className="container mx-auto">
+                            <p className="serif text-amber-300 text-2xl mb-6 tracking-widest">LUXE</p>
+                            <p>123 Perfume Street, Paris • +33 1 23 45 67 89</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Parfum />);
+    </script>
+</body>
+</html>

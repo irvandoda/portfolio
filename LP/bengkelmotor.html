@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoFix - Bengkel Motor Profesional & Terpercaya</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#FF5722',
+                            dark: '#1F2937',
+                            black: '#111827',
+                            light: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Russo One', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-color: #111827;
+            background-image: url("https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1F2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF5722;
+            border-radius: 5px;
+        }
+
+        .service-card:hover .icon-wrapper {
+            background-color: #FF5722;
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-black/90 backdrop-blur-md text-white shadow-lg transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-wrench text-brand-orange text-2xl"></i>
+                    <span class="font-display text-2xl tracking-wider text-white">MOTO<span class="text-brand-orange">FIX</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-brand-orange transition-colors px-3 py-2 rounded-md font-medium">Beranda</a>
+                        <a href="#layanan" class="hover:text-brand-orange transition-colors px-3 py-2 rounded-md font-medium">Layanan</a>
+                        <a href="#keunggulan" class="hover:text-brand-orange transition-colors px-3 py-2 rounded-md font-medium">Keunggulan</a>
+                        <a href="#booking" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-500/30">
+                            Booking Servis
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-gray-900 border-t border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-300 hover:text-brand-orange block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="#layanan" class="text-gray-300 hover:text-brand-orange block px-3 py-2 rounded-md text-base font-medium">Layanan</a>
+                <a href="#keunggulan" class="text-gray-300 hover:text-brand-orange block px-3 py-2 rounded-md text-base font-medium">Keunggulan</a>
+                <a href="#booking" class="text-brand-orange font-bold block px-3 py-2 rounded-md text-base">Booking Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-pattern h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-orange/20 text-brand-orange text-sm font-semibold mb-4 border border-brand-orange/50">
+                    <i class="fas fa-check-circle mr-1"></i> Bengkel Terpercaya Sejak 2015
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-display text-white mb-6 leading-tight">
+                    Performa Maksimal <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-yellow-500">Untuk Motor Anda</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300 mb-10">
+                    Layanan servis profesional dengan mekanik berpengalaman dan suku cadang asli. Kembalikan kenyamanan berkendara Anda sekarang.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#booking" class="px-8 py-4 bg-brand-orange hover:bg-orange-600 text-white rounded-full font-bold text-lg transition-all shadow-lg shadow-orange-500/40 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Booking via WhatsApp
+                    </a>
+                    <a href="#layanan" class="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-black rounded-full font-bold text-lg transition-all flex items-center justify-center">
+                        Lihat Layanan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="bg-brand-black py-10 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-brand-orange mb-1">5000+</div>
+                    <div class="text-gray-400 text-sm md:text-base">Motor Diservis</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-brand-orange mb-1">10+</div>
+                    <div class="text-gray-400 text-sm md:text-base">Tahun Pengalaman</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-brand-orange mb-1">100%</div>
+                    <div class="text-gray-400 text-sm md:text-base">Garansi Servis</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-brand-orange mb-1">4.9</div>
+                    <div class="text-gray-400 text-sm md:text-base">Rating Google</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-orange font-bold tracking-wide uppercase text-sm mb-2">Layanan Kami</h2>
+                <h3 class="text-3xl md:text-4xl font-display text-brand-black">Solusi Lengkap Kendaraan Roda Dua</h3>
+                <div class="w-20 h-1 bg-brand-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300 group-hover:bg-brand-orange group-hover:text-white">
+                        <i class="fas fa-oil-can text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Ganti Oli Berkala</h4>
+                    <p class="text-gray-600 mb-4">Penggantian oli mesin dan gardan menggunakan produk original untuk menjaga performa mesin tetap halus dan awet.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300">
+                        <i class="fas fa-cogs text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Tune Up Lengkap</h4>
+                    <p class="text-gray-600 mb-4">Pembersihan karburator/injeksi, cek filter udara, busi, dan penyetelan klep untuk mengembalikan tenaga motor.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Servis Berat (Overhaul)</h4>
+                    <p class="text-gray-600 mb-4">Perbaikan turun mesin untuk masalah berat seperti ngebul, suara kasar, atau kerusakan piston dan stang seher.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Perbaikan Kelistrikan</h4>
+                    <p class="text-gray-600 mb-4">Mengatasi masalah starter, lampu mati, aki drop, dan instalasi aksesoris kelistrikan motor.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300">
+                        <i class="fas fa-motorcycle text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Ban & Kaki-kaki</h4>
+                    <p class="text-gray-600 mb-4">Ganti ban, tambal ban tubeless, servis shockbreaker, komstir, dan penggantian kampas rem.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="icon-wrapper w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-orange shadow-md mb-6 transition-all duration-300">
+                        <i class="fas fa-box-open text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-black mb-3">Sparepart Asli</h4>
+                    <p class="text-gray-600 mb-4">Kami menyediakan suku cadang original (OEM) dan aftermarket berkualitas tinggi sesuai kebutuhan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan / Why Us -->
+    <section id="keunggulan" class="py-20 bg-brand-dark text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-brand-orange font-bold tracking-wide uppercase text-sm mb-2">Kenapa MotoFix?</h2>
+                    <h3 class="text-3xl md:text-4xl font-display mb-6">Bengkel Modern dengan Standar Dealer Resmi</h3>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Kami tidak hanya memperbaiki motor, kami merawatnya. Dengan transparansi penuh, Anda bisa melihat proses pengerjaan dan mendapatkan penjelasan detail tentang kondisi motor Anda.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3"></i>
+                            <div>
+                                <h5 class="font-bold text-white">Mekanik Bersertifikat</h5>
+                                <p class="text-sm text-gray-400">Tim teknisi kami terlatih dan berpengalaman menangani berbagai jenis motor.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3"></i>
+                            <div>
+                                <h5 class="font-bold text-white">Transparansi Harga</h5>
+                                <p class="text-sm text-gray-400">Estimasi biaya diberikan di awal. Tidak ada biaya tersembunyi.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3"></i>
+                            <div>
+                                <h5 class="font-bold text-white">Ruang Tunggu Nyaman</h5>
+                                <p class="text-sm text-gray-400">Free WiFi, kopi gratis, dan ruangan ber-AC saat Anda menunggu motor diservis.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-brand-orange/20 rounded-2xl blur-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mekanik Bekerja" class="relative rounded-2xl shadow-2xl border border-gray-700 w-full object-cover h-[400px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="bg-brand-orange py-6 px-8 text-center">
+                    <h2 class="text-2xl font-display text-white">Booking Servis Sekarang</h2>
+                    <p class="text-orange-100">Isi form di bawah, kami akan konfirmasi jadwal via WhatsApp.</p>
+                </div>
+                
+                <div class="p-8 md:p-12">
+                    <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition-all" placeholder="Contoh: Budi Santoso">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor WhatsApp</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition-all" placeholder="Contoh: 08123456789">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="motor" class="block text-sm font-medium text-gray-700 mb-1">Tipe Motor</label>
+                                <input type="text" id="motor" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition-all" placeholder="Contoh: Vario 150, NMAX, Beat">
+                            </div>
+                            <div>
+                                <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Rencana Tanggal Servis</label>
+                                <input type="date" id="date" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Jenis Layanan</label>
+                            <select id="service" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition-all">
+                                <option value="Servis Rutin/Tune Up">Servis Rutin / Tune Up</option>
+                                <option value="Ganti Oli">Ganti Oli</option>
+                                <option value="Ganti Ban">Ganti Ban</option>
+                                <option value="Perbaikan Kelistrikan">Perbaikan Kelistrikan</option>
+                                <option value="Keluhan Lainnya">Keluhan Lainnya (Jelaskan di Chat)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-black hover:bg-gray-800 text-white font-bold py-4 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg flex items-center justify-center gap-2 text-lg">
+                            <i class="fab fa-whatsapp text-2xl text-green-400"></i> Kirim ke WhatsApp
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-4">*Data Anda aman. Kami akan mengarahkan Anda langsung ke chat WhatsApp Admin MotoFix.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black text-gray-300 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-wrench text-brand-orange text-2xl"></i>
+                        <span class="font-display text-2xl tracking-wider text-white">MOTO<span class="text-brand-orange">FIX</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4">
+                        Bengkel motor modern yang mengutamakan kualitas, kecepatan, dan kepuasan pelanggan. Solusi terbaik untuk teman perjalanan Anda.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-orange mt-1"></i>
+                            <span>Jl. Raya Motor No. 88, Jakarta Selatan, Indonesia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-brand-orange"></i>
+                            <span>0812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-orange"></i>
+                            <span>admin@motofix.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Jam Operasional -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Jam Operasional</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Senin - Jumat</span>
+                            <span class="text-white font-medium">08:00 - 17:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Sabtu</span>
+                            <span class="text-white font-medium">08:00 - 15:00</span>
+                        </li>
+                        <li class="flex justify-between pb-2">
+                            <span>Minggu</span>
+                            <span class="text-brand-orange font-medium">Tutup</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-black py-4 text-center text-sm text-gray-600">
+            &copy; 2023 MotoFix Bengkel Motor. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Notification Modal (Hidden by default) -->
+    <div id="notification" class="fixed bottom-4 right-4 bg-white border-l-4 border-green-500 shadow-2xl rounded-lg p-4 transform translate-y-full transition-transform duration-300 z-50 max-w-sm hidden">
+        <div class="flex items-start">
+            <div class="flex-shrink-0">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+            </div>
+            <div class="ml-3">
+                <p class="text-sm font-medium text-gray-900">Mengalihkan ke WhatsApp...</p>
+                <p class="text-sm text-gray-500">Silakan kirim pesan yang telah disiapkan.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Handle Booking Form
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const name = document.getElementById('name').value;
+            const motor = document.getElementById('motor').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+
+            // Format pesan WhatsApp
+            const message = `Halo MotoFix, saya ingin booking servis.%0A%0ANama: ${name}%0AMotor: ${motor}%0ALayanan: ${service}%0ATanggal: ${date}%0A%0AMohon konfirmasinya. Terima kasih.`;
+            
+            // Nomor WA Tujuan (Ganti dengan nomor bengkel asli)
+            const phoneNumber = "6281234567890"; 
+            
+            // Show custom notification (instead of alert)
+            const notif = document.getElementById('notification');
+            notif.classList.remove('hidden');
+            setTimeout(() => {
+                notif.classList.remove('translate-y-full');
+            }, 10);
+
+            // Redirect ke WA setelah jeda singkat
+            setTimeout(() => {
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                notif.classList.add('translate-y-full');
+                setTimeout(() => {
+                    notif.classList.add('hidden');
+                }, 300);
+            }, 1500);
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.remove('py-2');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

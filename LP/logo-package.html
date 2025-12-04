@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandKit - Professional Logo Packages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        body { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#000000] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const LogoPackage = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 border-b border-white/10">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-bold tracking-tighter">BRAND<span className="text-lime-400">KIT</span></div>
+                            <div className="flex gap-4">
+                                <a href="#portfolio" className="hover:text-lime-400 transition-colors">Work</a>
+                                <a href="#pricing" className="hover:text-lime-400 transition-colors">Pricing</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-24 px-6 text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                                Premium Identities for <br/>
+                                <span className="text-lime-400">Modern Startups</span>
+                            </h1>
+                            <p className="text-xl text-gray-400 mb-12">
+                                Get a professional logo, brand guidelines, and social assets in 48 hours. No agencies, no hourly rates. Fixed price.
+                            </p>
+                            <button className="bg-lime-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-lime-300 transition-all hover:scale-105">
+                                View Available Packages
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Portfolio */}
+                    <section id="portfolio" className="py-20 px-6">
+                        <div className="container mx-auto">
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { name: "TechFlow", color: "bg-blue-600" },
+                                    { name: "LeafLife", color: "bg-green-600" },
+                                    { name: "Solaris", color: "bg-orange-500" }
+                                ].map((item, i) => (
+                                    <div key={i} className="group cursor-pointer">
+                                        <div className={`${item.color} aspect-video rounded-xl mb-4 flex items-center justify-center text-3xl font-bold tracking-tight shadow-lg group-hover:opacity-90 transition-opacity`}>
+                                            {item.name}
+                                        </div>
+                                        <h3 className="text-xl font-bold">{item.name} Rebrand</h3>
+                                        <p className="text-sm text-gray-500">Logo, Identity, UI Kit</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Process */}
+                    <section className="py-20 px-6 bg-[#111]">
+                        <div className="container mx-auto max-w-4xl text-center">
+                            <h2 className="text-3xl font-bold mb-16">How It Works</h2>
+                            <div className="flex flex-col md:flex-row gap-8 justify-between">
+                                <div className="relative">
+                                    <div className="w-16 h-16 bg-[#222] rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-lime-400/30">1</div>
+                                    <h3 className="text-xl font-bold mb-2">Brief</h3>
+                                    <p className="text-gray-400 text-sm">Fill out a simple questionnaire.</p>
+                                </div>
+                                <div className="relative">
+                                    <div className="w-16 h-16 bg-[#222] rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-lime-400/30">2</div>
+                                    <h3 className="text-xl font-bold mb-2">Design</h3>
+                                    <p className="text-gray-400 text-sm">We craft 3 unique concepts.</p>
+                                </div>
+                                <div className="relative">
+                                    <div className="w-16 h-16 bg-[#222] rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-lime-400/30">3</div>
+                                    <h3 className="text-xl font-bold mb-2">Delivery</h3>
+                                    <p className="text-gray-400 text-sm">Final files in all formats.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Pricing */}
+                    <section id="pricing" className="py-20 px-6">
+                        <div className="container mx-auto max-w-5xl">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div className="border border-white/10 p-10 rounded-2xl hover:border-lime-400/50 transition-colors">
+                                    <h3 className="text-2xl font-bold mb-2">Startup Pack</h3>
+                                    <div className="text-4xl font-bold mb-6 text-lime-400">$299</div>
+                                    <ul className="space-y-4 text-gray-300 mb-8">
+                                        <li>✓ Primary Logo</li>
+                                        <li>✓ 2 Revisions</li>
+                                        <li>✓ Vector Files (AI, EPS)</li>
+                                        <li>✓ High-Res PNG/JPG</li>
+                                    </ul>
+                                    <button className="w-full border border-white text-white py-3 rounded-lg font-bold hover:bg-white hover:text-black transition-colors">
+                                        Choose Plan
+                                    </button>
+                                </div>
+                                <div className="bg-lime-400 text-black p-10 rounded-2xl shadow-[0_0_40px_rgba(163,230,53,0.3)] transform md:scale-105">
+                                    <div className="uppercase tracking-widest text-xs font-bold mb-2 opacity-70">Most Popular</div>
+                                    <h3 className="text-3xl font-bold mb-2">Pro Identity</h3>
+                                    <div className="text-5xl font-bold mb-6">$599</div>
+                                    <ul className="space-y-4 font-medium mb-8 border-t border-black/10 pt-6">
+                                        <li className="flex items-center gap-2"><span>✓</span> Everything in Startup</li>
+                                        <li className="flex items-center gap-2"><span>✓</span> Brand Brand Guidelines</li>
+                                        <li className="flex items-center gap-2"><span>✓</span> Social Media Kit</li>
+                                        <li className="flex items-center gap-2"><span>✓</span> Business Card Design</li>
+                                        <li className="flex items-center gap-2"><span>✓</span> Unlimited Revisions</li>
+                                    </ul>
+                                    <button className="w-full bg-black text-white py-4 rounded-lg font-bold hover:bg-gray-900 transition-colors">
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
+                        <p>&copy; 2024 BrandKit Studio. All rights reserved.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<LogoPackage />);
+    </script>
+</body>
+</html>
+

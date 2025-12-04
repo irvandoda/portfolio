@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudScale - Cloud Infrastructure Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const CloudServices = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 border-b border-gray-100 sticky top-0 bg-white z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-black text-blue-600">CloudScale</div>
+                            <div className="hidden md:flex gap-8 text-sm font-bold text-gray-600">
+                                <a href="#" className="hover:text-blue-600">Services</a>
+                                <a href="#" className="hover:text-blue-600">Solutions</a>
+                                <a href="#" className="hover:text-blue-600">Pricing</a>
+                                <a href="#" className="hover:text-blue-600">Support</a>
+                            </div>
+                            <div className="flex gap-4">
+                                <button className="text-gray-600 font-bold hover:text-blue-600">Console</button>
+                                <button className="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-24 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+                        <div className="container mx-auto text-center max-w-4xl">
+                            <div className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold mb-6">
+                                ☁️ 99.99% Uptime SLA
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight text-gray-900">
+                                Scale Your Infrastructure <br/> <span className="text-blue-600">In the Cloud</span>
+                            </h1>
+                            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+                                Enterprise-grade cloud infrastructure. Deploy, scale, and manage your applications with our powerful platform. Global data centers, 24/7 support.
+                            </p>
+                            <div className="flex justify-center gap-4">
+                                <button className="bg-blue-600 text-white px-10 py-4 rounded-xl font-black text-lg shadow-xl hover:bg-blue-700 transition-all hover:-translate-y-1">
+                                    Start Free Trial
+                                </button>
+                                <button className="bg-white text-gray-700 border-2 border-gray-200 px-10 py-4 rounded-xl font-bold text-lg hover:border-blue-500 hover:text-blue-600 transition-all">
+                                    View Solutions
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Services */}
+                    <section className="py-24 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-20">
+                                <h2 className="text-4xl font-black mb-4">Cloud Services</h2>
+                                <p className="text-gray-500 text-lg">Complete infrastructure solutions</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-12">
+                                {[
+                                    { title: "Compute", desc: "Virtual machines, containers, serverless", icon: "💻" },
+                                    { title: "Storage", desc: "Object storage, block storage, CDN", icon: "💾" },
+                                    { title: "Networking", desc: "VPC, load balancers, DNS", icon: "🌐" },
+                                    { title: "Databases", desc: "Managed SQL, NoSQL, caching", icon: "🗄️" },
+                                    { title: "Security", desc: "Firewalls, DDoS protection, encryption", icon: "🔒" },
+                                    { title: "Monitoring", desc: "Logs, metrics, alerts, dashboards", icon: "📊" }
+                                ].map((service, i) => (
+                                    <div key={i} className="p-8 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors group">
+                                        <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
+                                        <h3 className="text-xl font-black mb-3">{service.title}</h3>
+                                        <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Global */}
+                    <section className="py-24 px-6 bg-blue-600 text-white">
+                        <div className="container mx-auto">
+                            <div className="grid md:grid-cols-2 gap-16 items-center">
+                                <div>
+                                    <h2 className="text-4xl font-black mb-6">Global Infrastructure</h2>
+                                    <p className="text-blue-100 mb-8 leading-loose text-lg">
+                                        Deploy your applications closer to your users with our worldwide network of data centers. Low latency, high performance, global reach.
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div>
+                                            <div className="text-4xl font-black mb-2">50+</div>
+                                            <p className="text-blue-200 text-sm">Data Centers</p>
+                                        </div>
+                                        <div>
+                                            <div className="text-4xl font-black mb-2">200+</div>
+                                            <p className="text-blue-200 text-sm">Countries Served</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl shadow-2xl w-full" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-24 px-6 bg-gray-900 text-white text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Scale?</h2>
+                            <p className="text-xl text-gray-300 mb-10">
+                                Start with $100 free credits. No credit card required.
+                            </p>
+                            <button className="bg-blue-600 text-white px-10 py-4 rounded-xl font-black text-lg hover:bg-blue-700 transition-colors shadow-xl">
+                                Get Started Free
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 bg-white border-t border-gray-100 text-sm">
+                        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+                            <div>
+                                <div className="text-blue-600 font-black text-lg mb-4">CloudScale</div>
+                                <p className="text-gray-500">Enterprise cloud infrastructure.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-black mb-4">Services</h4>
+                                <ul className="space-y-2 text-gray-500">
+                                    <li><a href="#" className="hover:text-blue-600">Compute</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Storage</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Networking</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-black mb-4">Company</h4>
+                                <ul className="space-y-2 text-gray-500">
+                                    <li><a href="#" className="hover:text-blue-600">About</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Blog</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Careers</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-black mb-4">Support</h4>
+                                <ul className="space-y-2 text-gray-500">
+                                    <li><a href="#" className="hover:text-blue-600">Documentation</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Status</a></li>
+                                    <li><a href="#" className="hover:text-blue-600">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<CloudServices />);
+    </script>
+</body>
+</html>
+

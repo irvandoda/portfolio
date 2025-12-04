@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Zen Villa - Luxury Private Villa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Proza+Libre&display=swap');
+        body { font-family: 'Proza Libre', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+    </style>
+</head>
+<body class="bg-[#fcfcfc] text-[#4a4a4a]">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const Villa = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="absolute w-full z-50 py-6 px-8 flex justify-between items-center text-white">
+                        <div className="text-2xl serif tracking-widest">BALI ZEN</div>
+                        <div className="hidden md:flex gap-10 text-xs uppercase tracking-[0.2em]">
+                            <a href="#" className="hover:text-amber-200 transition-colors">Villas</a>
+                            <a href="#" className="hover:text-amber-200 transition-colors">Experiences</a>
+                            <a href="#" className="hover:text-amber-200 transition-colors">Dining</a>
+                            <a href="#" className="hover:text-amber-200 transition-colors">Offers</a>
+                        </div>
+                        <button className="bg-white text-[#4a4a4a] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-amber-50 transition-colors">
+                            Check Availability
+                        </button>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="h-screen relative flex items-center justify-center text-center">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover brightness-75" />
+                        </div>
+                        <div className="relative z-10 text-white max-w-2xl px-6">
+                            <p className="text-xs font-bold uppercase tracking-[0.3em] mb-6 text-amber-200">Private Pool Villas</p>
+                            <h1 className="text-6xl md:text-8xl mb-8 leading-tight font-light">
+                                Escape to <br/> Paradise
+                            </h1>
+                            <p className="text-lg text-white/90 mb-12 font-light leading-relaxed">
+                                Immerse yourself in the tranquility of Ubud's lush rainforest. Experience authentic Balinese hospitality in ultimate luxury.
+                            </p>
+                            <button className="border-b border-white pb-1 text-sm uppercase tracking-widest hover:text-amber-200 hover:border-amber-200 transition-all">
+                                Explore Our Villas
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Featured */}
+                    <section className="py-24 px-8">
+                        <div className="container mx-auto">
+                            <div className="grid md:grid-cols-2 gap-16 items-center">
+                                <div>
+                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop" className="w-full h-[500px] object-cover shadow-2xl" />
+                                </div>
+                                <div>
+                                    <span className="text-amber-600 text-4xl mb-4 block">❦</span>
+                                    <h2 className="text-4xl md:text-5xl serif mb-6 text-[#2c2c2c]">One Bedroom <br/> Pool Villa</h2>
+                                    <p className="text-gray-500 mb-8 leading-loose">
+                                        A romantic sanctuary featuring a private infinity pool overlooking the valley. Includes a spacious outdoor living area, luxurious bathroom with sunken tub, and personalized butler service.
+                                    </p>
+                                    <ul className="grid grid-cols-2 gap-4 mb-10 text-sm text-gray-600 uppercase tracking-wider">
+                                        <li>• 150 sqm</li>
+                                        <li>• Private Pool</li>
+                                        <li>• Valley View</li>
+                                        <li>• King Bed</li>
+                                    </ul>
+                                    <button className="bg-[#2c2c2c] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#4a4a4a] transition-colors">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Amenities */}
+                    <section className="py-24 bg-[#f5f5f5] px-8">
+                        <div className="container mx-auto text-center">
+                            <h2 className="text-4xl serif mb-16 text-[#2c2c2c]">Unforgettable Experiences</h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                <div className="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow">
+                                    <h3 className="text-2xl serif mb-4">Floating Breakfast</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">Start your day with a delicious meal served on a floating tray in your private pool.</p>
+                                </div>
+                                <div className="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow">
+                                    <h3 className="text-2xl serif mb-4">Yoga Shala</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">Daily morning yoga sessions overlooking the rice terraces to rejuvenate your spirit.</p>
+                                </div>
+                                <div className="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow">
+                                    <h3 className="text-2xl serif mb-4">Romantic Dinner</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">Candlelight dinner under the stars prepared exclusively by our private chef.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Reviews */}
+                    <section className="py-24 px-8 text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <div className="text-amber-500 text-2xl mb-6">★★★★★</div>
+                            <p className="text-2xl md:text-3xl serif italic text-[#2c2c2c] mb-8 leading-normal">
+                                "The most magical place we have ever stayed. The staff went above and beyond to make our honeymoon special. Truly a slice of heaven on earth."
+                            </p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-gray-400">— Sarah & James, Australia</p>
+                        </div>
+                    </section>
+
+                    <footer className="bg-[#2c2c2c] text-white py-16 text-center">
+                        <div className="container mx-auto px-8">
+                            <div className="text-3xl serif mb-8">BALI ZEN</div>
+                            <div className="flex justify-center gap-8 text-xs uppercase tracking-widest text-gray-400 mb-8">
+                                <a href="#" className="hover:text-white">Instagram</a>
+                                <a href="#" className="hover:text-white">Facebook</a>
+                                <a href="#" className="hover:text-white">TripAdvisor</a>
+                            </div>
+                            <p className="text-gray-600 text-xs">&copy; 2024 Bali Zen Villas. Ubud, Bali.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Villa />);
+    </script>
+</body>
+</html>
+

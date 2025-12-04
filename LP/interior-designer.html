@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVID - Interior Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Tenor+Sans&display=swap');
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Tenor Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F3F0EB] text-[#2C2C2C]">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const InteriorDesigner = () => {
+            return (
+                <div className="min-h-screen border-[16px] border-white">
+                    {/* Nav */}
+                    <nav className="py-8 px-8 flex justify-between items-center">
+                        <div className="text-2xl serif tracking-widest">VIVID</div>
+                        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em] font-bold">
+                            <a href="#" className="hover:text-[#8B7355]">Portfolio</a>
+                            <a href="#" className="hover:text-[#8B7355]">Process</a>
+                            <a href="#" className="hover:text-[#8B7355]">About</a>
+                            <a href="#" className="hover:text-[#8B7355]">Contact</a>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-8">
+                        <div className="container mx-auto grid md:grid-cols-12 gap-12 items-center">
+                            <div className="md:col-span-5">
+                                <p className="text-[#8B7355] text-xs font-bold uppercase tracking-[0.3em] mb-6">Interior Design Studio</p>
+                                <h1 className="text-6xl md:text-7xl serif mb-8 leading-none">
+                                    Curating <br/> Soulful <br/> Spaces
+                                </h1>
+                                <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-sm">
+                                    We transform houses into homes with thoughtful design, natural materials, and timeless aesthetics.
+                                </p>
+                                <button className="bg-[#2C2C2C] text-white px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#8B7355] transition-colors">
+                                    View Our Work
+                                </button>
+                            </div>
+                            <div className="md:col-span-7 relative">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" className="w-full h-[500px] object-cover rounded-sm mt-12" />
+                                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=1000&auto=format&fit=crop" className="w-full h-[500px] object-cover rounded-sm" />
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Services */}
+                    <section className="py-24 px-8 bg-white">
+                        <div className="container mx-auto">
+                            <div className="grid md:grid-cols-3 gap-16">
+                                <div>
+                                    <span className="text-[#8B7355] text-4xl block mb-6">01</span>
+                                    <h3 className="text-2xl serif mb-4">Residential Design</h3>
+                                    <p className="text-gray-500 leading-relaxed">Full-service interior design for new builds and renovations. From concept to final styling.</p>
+                                </div>
+                                <div>
+                                    <span className="text-[#8B7355] text-4xl block mb-6">02</span>
+                                    <h3 className="text-2xl serif mb-4">Virtual E-Design</h3>
+                                    <p className="text-gray-500 leading-relaxed">A digital design package including moodboards, floor plans, and shopping lists for DIYers.</p>
+                                </div>
+                                <div>
+                                    <span className="text-[#8B7355] text-4xl block mb-6">03</span>
+                                    <h3 className="text-2xl serif mb-4">Styling & Decor</h3>
+                                    <p className="text-gray-500 leading-relaxed">The finishing touches. Selection of furniture, art, and accessories to complete your space.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Quote */}
+                    <section className="py-32 px-8 bg-[#2C2C2C] text-[#F3F0EB] text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <p className="text-3xl md:text-4xl serif leading-normal italic">
+                                "Your home should tell the story of who you are, and be a collection of what you love."
+                            </p>
+                            <p className="mt-8 text-sm font-bold uppercase tracking-widest text-[#8B7355]">- Nate Berkus</p>
+                        </div>
+                    </section>
+
+                    {/* Gallery Preview */}
+                    <section className="py-24 px-8">
+                        <div className="container mx-auto">
+                            <div className="flex justify-between items-end mb-12">
+                                <h2 className="text-4xl serif">Recent Projects</h2>
+                                <a href="#" className="italic border-b border-[#2C2C2C] pb-1 hover:text-[#8B7355] hover:border-[#8B7355]">View All</a>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?q=80&w=1000&auto=format&fit=crop" className="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+                                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1000&auto=format&fit=crop" className="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 px-8 border-t border-[#E5E0D8] text-center text-sm text-gray-500">
+                        <p>&copy; 2024 VIVID Interior Design Studio.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<InteriorDesigner />);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Sanctuary - Spa & Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400&display=swap');
+        body { font-family: 'Raleway', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#4A4A4A]">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const SpaTherapy = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="absolute w-full z-50 py-6 px-6 flex justify-between items-center text-white">
+                        <div className="text-2xl serif italic tracking-wider">Zen Sanctuary</div>
+                        <div className="hidden md:flex gap-8 text-xs uppercase tracking-[0.2em]">
+                            <a href="#" className="hover:text-[#D4C4A8] transition-colors">Menu</a>
+                            <a href="#" className="hover:text-[#D4C4A8] transition-colors">Retreats</a>
+                            <a href="#" className="hover:text-[#D4C4A8] transition-colors">About</a>
+                        </div>
+                        <button className="border border-white px-6 py-2 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-[#4A4A4A] transition-colors">
+                            Book Now
+                        </button>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="h-screen relative flex items-center justify-center text-center">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover brightness-50" />
+                        </div>
+                        <div className="relative z-10 px-6 text-white">
+                            <p className="text-xs uppercase tracking-[0.3em] mb-6 opacity-80">Holistic Wellness Center</p>
+                            <h1 className="text-5xl md:text-7xl mb-8 italic leading-tight">
+                                Restore Your <br/> Body & Mind
+                            </h1>
+                            <p className="text-lg opacity-90 mb-10 max-w-md mx-auto font-light">
+                                A tranquil escape from the city hustle. Experience ancient healing traditions tailored for modern life.
+                            </p>
+                            <div className="animate-bounce text-2xl opacity-50">↓</div>
+                        </div>
+                    </header>
+
+                    {/* Services */}
+                    <section className="py-24 px-6">
+                        <div className="container mx-auto max-w-5xl">
+                            <div className="text-center mb-16">
+                                <span className="text-[#D4C4A8] text-4xl block mb-4">❧</span>
+                                <h2 className="text-4xl serif italic mb-4">Therapies</h2>
+                                <p className="text-sm uppercase tracking-widest opacity-60">Curated for Deep Relaxation</p>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-12">
+                                <div className="flex gap-6 items-start">
+                                    <div className="w-24 h-24 flex-shrink-0 rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1519823551278-64ac927accc9?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl serif mb-2">Balinese Massage</h3>
+                                        <p className="text-sm leading-relaxed opacity-70 mb-2">A deep-tissue massage using gentle stretches, acupressure, and aromatherapy oils to stimulate the flow of blood and oxygen.</p>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[#8B7355]">60 min / $85</span>
+                                    </div>
+                                </div>
+                                <div className="flex gap-6 items-start">
+                                    <div className="w-24 h-24 flex-shrink-0 rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1591343395902-1adaa4526718?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl serif mb-2">Hot Stone Therapy</h3>
+                                        <p className="text-sm leading-relaxed opacity-70 mb-2">Smooth, heated stones are placed on specific points of the body to melt away tension and muscle stiffness.</p>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[#8B7355]">90 min / $120</span>
+                                    </div>
+                                </div>
+                                <div className="flex gap-6 items-start">
+                                    <div className="w-24 h-24 flex-shrink-0 rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl serif mb-2">Organic Facial</h3>
+                                        <p className="text-sm leading-relaxed opacity-70 mb-2">Rejuvenate your skin with organic botanical extracts. Cleanses, exfoliates, and hydrates for a radiant glow.</p>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[#8B7355]">60 min / $95</span>
+                                    </div>
+                                </div>
+                                <div className="flex gap-6 items-start">
+                                    <div className="w-24 h-24 flex-shrink-0 rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl serif mb-2">Reflexology</h3>
+                                        <p className="text-sm leading-relaxed opacity-70 mb-2">Pressure is applied to specific reflex points on the feet to restore balance and support the body's healing.</p>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[#8B7355]">45 min / $60</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Atmosphere */}
+                    <section className="h-[500px] relative bg-fixed bg-center bg-cover" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1000&auto=format&fit=crop")'}}>
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-center p-6">
+                            <div>
+                                <h2 className="text-4xl serif italic mb-6">The Atmosphere</h2>
+                                <p className="max-w-lg mx-auto text-lg font-light">"A place where time slows down and silence speaks."</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="bg-[#EAE6DF] py-16 text-center">
+                        <div className="container mx-auto px-6">
+                            <div className="text-2xl serif italic mb-8">Zen Sanctuary</div>
+                            <div className="text-sm opacity-60 mb-8">
+                                <p>Open Daily: 10:00 AM - 09:00 PM</p>
+                                <p>Ubud, Bali - Indonesia</p>
+                            </div>
+                            <div className="flex justify-center gap-6 text-xs uppercase tracking-widest opacity-50">
+                                <a href="#">Instagram</a>
+                                <a href="#">Facebook</a>
+                                <a href="#">Email</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<SpaTherapy />);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeLuxury - Jam Tangan Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#1a1a1a] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const JamTangan = () => {
+            return (
+                <div className="min-h-screen">
+                    <nav className="py-6 px-8 border-b border-white/10 sticky top-0 bg-[#1a1a1a]/90 backdrop-blur z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl serif text-amber-300 tracking-widest">TimeLuxury</div>
+                            <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest text-white/70">
+                                <a href="#" className="hover:text-amber-300 transition-colors">Collections</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Heritage</a>
+                                <a href="#" className="hover:text-amber-300 transition-colors">Boutique</a>
+                            </div>
+                            <button className="border border-amber-300 text-amber-300 px-6 py-2 text-xs uppercase tracking-widest hover:bg-amber-300 hover:text-black transition-all">
+                                Explore
+                            </button>
+                        </div>
+                    </nav>
+
+                    <header className="h-screen flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover opacity-30" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+                        </div>
+                        <div className="relative z-10 text-center max-w-3xl px-6">
+                            <p className="serif text-amber-300 text-lg mb-6 tracking-widest">Swiss-Made Excellence</p>
+                            <h1 className="text-6xl md:text-8xl serif mb-8 leading-tight">
+                                Precision. <br/> <span className="text-amber-300">Elegance.</span> <br/> Legacy.
+                            </h1>
+                            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed">
+                                Master-crafted timepieces that stand the test of time. Each watch is a testament to Swiss horological excellence.
+                            </p>
+                            <button className="border-b border-amber-300 pb-2 text-sm uppercase tracking-[0.3em] hover:text-amber-300 transition-colors">
+                                Discover Collection
+                            </button>
+                        </div>
+                    </header>
+
+                    <section className="py-32 px-8 bg-[#1a1a1a]">
+                        <div className="container mx-auto">
+                            <h2 className="text-4xl serif text-center mb-20">Signature Collection</h2>
+                            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                                {[
+                                    { name: "Classic Heritage", price: "$2,500", desc: "Timeless design, automatic movement" },
+                                    { name: "Sport Chronograph", price: "$3,200", desc: "Precision timing, water resistant" },
+                                    { name: "Luxury Masterpiece", price: "$8,500", desc: "Limited edition, hand-crafted" }
+                                ].map((watch, i) => (
+                                    <div key={i} className="text-center group">
+                                        <div className="h-80 bg-gray-800 rounded-sm mb-6 group-hover:bg-gray-700 transition-colors flex items-center justify-center">
+                                            <span className="text-6xl">⌚</span>
+                                        </div>
+                                        <h3 className="serif text-2xl mb-2 text-amber-300">{watch.name}</h3>
+                                        <p className="text-white/60 text-sm mb-4">{watch.desc}</p>
+                                        <p className="text-white font-bold">{watch.price}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                        <div className="container mx-auto">
+                            <p className="serif text-amber-300 text-2xl mb-6 tracking-widest">TimeLuxury</p>
+                            <p>Swiss Made • Since 1920</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<JamTangan />);
+    </script>
+</body>
+</html>

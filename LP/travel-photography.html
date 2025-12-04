@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLens - Travel Photography Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#1a1a1a] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const TravelPhotography = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="absolute w-full z-50 py-8 px-8 flex justify-between items-center text-white">
+                        <div className="text-2xl serif italic">WanderLens</div>
+                        <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest text-white/70">
+                            <a href="#" className="hover:text-white transition-colors">Portfolio</a>
+                            <a href="#" className="hover:text-white transition-colors">Services</a>
+                            <a href="#" className="hover:text-white transition-colors">About</a>
+                            <a href="#" className="hover:text-white transition-colors">Contact</a>
+                        </div>
+                        <button className="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                            Book Session
+                        </button>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="h-screen flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover opacity-50" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+                        </div>
+                        <div className="relative z-10 text-center max-w-3xl px-6">
+                            <p className="text-sm uppercase tracking-[0.3em] mb-6 text-white/60">Travel & Destination Photography</p>
+                            <h1 className="text-6xl md:text-8xl serif mb-8 leading-tight italic">
+                                Capturing Your <br/> <span className="text-amber-400">Adventures</span>
+                            </h1>
+                            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed max-w-xl mx-auto">
+                                Professional travel photography for couples, families, and solo travelers. Let me document your journey in stunning detail.
+                            </p>
+                            <button className="border-b border-amber-400 pb-2 text-sm uppercase tracking-[0.3em] hover:text-amber-400 transition-colors">
+                                View Portfolio
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Portfolio */}
+                    <section className="py-32 px-8 bg-[#1a1a1a]">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-20">
+                                <h2 className="text-5xl serif italic mb-6">Recent Work</h2>
+                                <p className="text-white/60">Travel stories through the lens</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { location: "Santorini, Greece", img: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=1000&auto=format&fit=crop" },
+                                    { location: "Bali, Indonesia", img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1000&auto=format&fit=crop" },
+                                    { location: "Tokyo, Japan", img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((photo, i) => (
+                                    <div key={i} className="group cursor-pointer">
+                                        <div className="h-96 overflow-hidden mb-4 rounded-sm">
+                                            <img src={photo.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                                        </div>
+                                        <p className="text-white/60 text-sm uppercase tracking-widest">{photo.location}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Services */}
+                    <section className="py-32 px-8 bg-black">
+                        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <h2 className="text-4xl serif mb-8">Services</h2>
+                                <ul className="space-y-6">
+                                    {[
+                                        "Couple Travel Photography",
+                                        "Family Vacation Sessions",
+                                        "Solo Traveler Portraits",
+                                        "Destination Wedding Coverage"
+                                    ].map((service, i) => (
+                                        <li key={i} className="flex items-center gap-4 text-white/70">
+                                            <span className="text-amber-400">▸</span> {service}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1000&auto=format&fit=crop" className="rounded-sm shadow-2xl" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                        <div className="container mx-auto">
+                            <p className="serif italic text-amber-400 text-2xl mb-6">WanderLens</p>
+                            <p>Available Worldwide • hello@wanderlens.com</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<TravelPhotography />);
+    </script>
+</body>
+</html>
+

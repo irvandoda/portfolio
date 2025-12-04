@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura Sushi - Authentic Japanese Cuisine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .japanese { font-family: 'Noto Sans JP', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#1a1a1a] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const SushiJapanese = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="absolute w-full z-50 py-8 px-8 flex justify-between items-center">
+                        <div className="text-2xl japanese text-red-500">桜</div>
+                        <div className="text-2xl font-bold text-white">Sakura Sushi</div>
+                        <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest text-white/70">
+                            <a href="#" className="hover:text-red-400 transition-colors">Menu</a>
+                            <a href="#" className="hover:text-red-400 transition-colors">Omakase</a>
+                            <a href="#" className="hover:text-red-400 transition-colors">Reservations</a>
+                            <a href="#" className="hover:text-red-400 transition-colors">About</a>
+                        </div>
+                        <button className="border border-red-500 text-red-500 px-6 py-2 text-xs uppercase tracking-widest hover:bg-red-500 hover:text-black transition-all">
+                            Reserve
+                        </button>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="h-screen flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover opacity-40" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90"></div>
+                        </div>
+                        <div className="relative z-10 text-center max-w-3xl px-6">
+                            <p className="japanese text-red-400 text-lg mb-6 tracking-widest">本格的な日本料理</p>
+                            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+                                Authentic <br/> <span className="text-red-400">Japanese</span> <br/> Experience
+                            </h1>
+                            <p className="text-lg text-white/70 mb-12 font-light leading-relaxed max-w-xl mx-auto">
+                                Master sushi chefs. Fresh fish flown in daily from Tokyo's Tsukiji Market. Traditional techniques, modern presentation.
+                            </p>
+                            <button className="border-b border-red-400 pb-2 text-sm uppercase tracking-[0.3em] hover:text-red-400 transition-colors">
+                                View Omakase Menu
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Menu */}
+                    <section className="py-32 px-8 bg-[#1a1a1a]">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-20">
+                                <h2 className="text-5xl font-bold mb-6">Signature Dishes</h2>
+                                <p className="text-white/60">Crafted by our master chefs</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                                {[
+                                    { name: "Omakase Set", price: "$120", desc: "Chef's selection of 12 pieces", img: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Wagyu Teppanyaki", price: "$85", desc: "Premium A5 wagyu, grilled tableside", img: "https://images.unsplash.com/photo-1574781330855-d0db8cc4a0d2?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Ramen Tonkotsu", price: "$18", desc: "Rich pork bone broth, 12-hour simmered", img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((dish, i) => (
+                                    <div key={i} className="group cursor-pointer">
+                                        <div className="h-64 overflow-hidden mb-6 rounded-sm">
+                                            <img src={dish.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                                        </div>
+                                        <div className="flex justify-between items-start border-b border-white/10 pb-4">
+                                            <div>
+                                                <h3 className="text-2xl font-bold mb-2">{dish.name}</h3>
+                                                <p className="text-white/60 text-sm">{dish.desc}</p>
+                                            </div>
+                                            <span className="text-red-400 font-bold">{dish.price}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Experience */}
+                    <section className="py-32 px-8 bg-black">
+                        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <h2 className="text-4xl font-bold mb-8">The Omakase Experience</h2>
+                                <p className="text-white/70 mb-8 leading-loose text-lg">
+                                    Let our master chef guide you through a culinary journey. Each course is carefully selected based on the freshest ingredients of the day. A 2-hour dining experience like no other.
+                                </p>
+                                <button className="border border-red-500 text-red-500 px-8 py-3 text-xs uppercase tracking-widest hover:bg-red-500 hover:text-black transition-all">
+                                    Book Omakase
+                                </button>
+                            </div>
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1000&auto=format&fit=crop" className="rounded-sm shadow-2xl" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-16 px-8 border-t border-white/10 text-center text-white/40 text-sm">
+                        <div className="container mx-auto">
+                            <p className="japanese text-red-400 text-3xl mb-6">桜</p>
+                            <p className="font-bold text-white mb-2">Sakura Sushi</p>
+                            <p>123 Japan Street, Downtown • +1 (555) 123-4567</p>
+                            <p className="mt-4 text-xs">Open Tuesday - Sunday, 5:00 PM - 11:00 PM</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<SushiJapanese />);
+    </script>
+</body>
+</html>
+

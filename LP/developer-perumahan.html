@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Harmony - Developer Perumahan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const DeveloperPerumahan = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-bold text-green-800 flex items-center gap-2">
+                                <span className="text-3xl">🏡</span> Green Harmony
+                            </div>
+                            <div className="hidden md:flex gap-8 text-sm font-bold text-stone-500">
+                                <a href="#" className="hover:text-green-800">Tipe Rumah</a>
+                                <a href="#" className="hover:text-green-800">Fasilitas</a>
+                                <a href="#" className="hover:text-green-800">Lokasi</a>
+                                <a href="#" className="hover:text-green-800">Simulasi KPR</a>
+                            </div>
+                            <button className="bg-green-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-900 transition-colors">
+                                Download Brosur
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="relative h-[700px] flex items-center">
+                        <div className="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+                        </div>
+                        <div className="container mx-auto px-6 relative z-10 text-white">
+                            <div className="max-w-2xl">
+                                <div className="inline-block bg-green-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                                    Hunian Asri & Modern
+                                </div>
+                                <h1 className="text-5xl md:text-7xl mb-8 leading-tight">
+                                    Temukan Ketenangan <br/> di Tengah Kota.
+                                </h1>
+                                <p className="text-xl text-stone-200 mb-10 leading-relaxed">
+                                    Kawasan hunian eksklusif dengan konsep eco-green living. Dilengkapi fasilitas premium dan akses mudah ke pusat bisnis.
+                                </p>
+                                <div className="flex gap-4">
+                                    <button className="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors shadow-lg">
+                                        Lihat Virtual Tour 360°
+                                    </button>
+                                    <button className="bg-white text-green-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-stone-100 transition-colors">
+                                        Hubungi Marketing
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Tipe Rumah */}
+                    <section className="py-24 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold text-stone-800 mb-4">Pilihan Tipe Rumah</h2>
+                                <p className="text-stone-500">Desain modern minimalis dengan sirkulasi udara optimal.</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { name: "Type 36/72", price: "Mulai Rp 500 Jt", spec: "2 KT • 1 KM • Carport", img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Type 45/90", price: "Mulai Rp 750 Jt", spec: "2 KT • 1 KM • Taman", img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Type 60/105", price: "Mulai Rp 1.2 M", spec: "3 KT • 2 KM • 2 Lantai", img: "https://images.unsplash.com/photo-1600596542815-27bfefd0c3c6?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((item, i) => (
+                                    <div key={i} className="border border-stone-200 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
+                                        <div className="h-64 overflow-hidden relative">
+                                            <img src={item.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                            <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
+                                                {item.price}
+                                            </div>
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className="text-2xl font-bold mb-2 serif">{item.name}</h3>
+                                            <p className="text-stone-500 mb-6 text-sm font-medium">{item.spec}</p>
+                                            <button className="w-full border-2 border-green-800 text-green-800 py-3 rounded-lg font-bold hover:bg-green-800 hover:text-white transition-colors">
+                                                Detail Spesifikasi
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Fasilitas */}
+                    <section className="py-24 bg-stone-900 text-white px-6">
+                        <div className="container mx-auto">
+                            <div className="flex flex-col md:flex-row gap-16 items-center">
+                                <div className="md:w-1/2">
+                                    <h2 className="text-4xl font-bold mb-8 leading-tight">Fasilitas Lengkap untuk Kenyamanan Keluarga</h2>
+                                    <ul className="space-y-6">
+                                        <li className="flex items-center gap-4">
+                                            <span className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-2xl">🌳</span>
+                                            <div>
+                                                <h4 className="font-bold text-lg">Taman Hijau 2 Hektar</h4>
+                                                <p className="text-stone-400 text-sm">Area terbuka hijau untuk aktivitas outdoor.</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-2xl">👮</span>
+                                            <div>
+                                                <h4 className="font-bold text-lg">Keamanan 24 Jam</h4>
+                                                <p className="text-stone-400 text-sm">One gate system dengan CCTV dan security.</p>
+                                            </div>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-2xl">🕌</span>
+                                            <div>
+                                                <h4 className="font-bold text-lg">Sarana Ibadah</h4>
+                                                <p className="text-stone-400 text-sm">Masjid nyaman di dalam kompleks.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="md:w-1/2 grid grid-cols-2 gap-4">
+                                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl w-full h-48 object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl w-full h-48 object-cover mt-8" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="bg-white py-12 border-t border-stone-200 text-center text-stone-500 text-sm">
+                        <div className="container mx-auto px-6">
+                            <p className="font-bold text-green-800 text-lg mb-4">Green Harmony Residence</p>
+                            <p>&copy; 2024 PT Properti Alam Semesta. All rights reserved.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<DeveloperPerumahan />);
+    </script>
+</body>
+</html>
+

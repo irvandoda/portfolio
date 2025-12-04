@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillUp - Platform Kursus Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const KursusOnline = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 border-b border-gray-100 sticky top-0 bg-white z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-bold text-purple-600 flex items-center gap-2">
+                                <span className="bg-purple-100 p-1 rounded">📚</span> SkillUp
+                            </div>
+                            <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-600">
+                                <a href="#" className="hover:text-purple-600">Kursus</a>
+                                <a href="#" className="hover:text-purple-600">Mentor</a>
+                                <a href="#" className="hover:text-purple-600">Harga</a>
+                                <a href="#" className="hover:text-purple-600">Tentang</a>
+                            </div>
+                            <div className="flex gap-4">
+                                <button className="text-gray-600 font-semibold hover:text-purple-600">Masuk</button>
+                                <button className="bg-purple-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-purple-700 transition-colors">
+                                    Daftar Gratis
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-6 bg-gradient-to-br from-purple-50 to-blue-50">
+                        <div className="container mx-auto flex flex-col md:flex-row items-center gap-16">
+                            <div className="md:w-1/2">
+                                <div className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold mb-6">
+                                    🎓 50,000+ Siswa Aktif
+                                </div>
+                                <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+                                    Belajar Keterampilan Baru <br/> <span className="text-purple-600">Dari Ahlinya.</span>
+                                </h1>
+                                <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+                                    Akses ribuan kursus online berkualitas tinggi. Dari desain grafis hingga pemrograman, semua tersedia di satu platform.
+                                </p>
+                                <div className="flex gap-4">
+                                    <button className="bg-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-purple-500/30 hover:bg-purple-700 transition-all hover:-translate-y-1">
+                                        Mulai Belajar Gratis
+                                    </button>
+                                    <button className="bg-white text-gray-700 border-2 border-gray-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-purple-500 hover:text-purple-600 transition-all">
+                                        Lihat Kursus
+                                    </button>
+                                </div>
+                                <div className="mt-10 flex items-center gap-8 text-sm text-gray-500">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-green-500 text-xl">✓</span> Sertifikat Resmi
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-green-500 text-xl">✓</span> Akses Seumur Hidup
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="md:w-1/2 relative">
+                                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-200 rounded-full opacity-50 blur-3xl"></div>
+                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-200 rounded-full opacity-50 blur-3xl"></div>
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" className="relative z-10 rounded-2xl shadow-2xl w-full" />
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Categories */}
+                    <section className="py-20 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl font-bold mb-4">Kategori Populer</h2>
+                                <p className="text-gray-500">Pilih bidang yang ingin Anda kuasai</p>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-6">
+                                {[
+                                    { name: "Web Development", icon: "💻", count: "1,200+ Kursus" },
+                                    { name: "UI/UX Design", icon: "🎨", count: "850+ Kursus" },
+                                    { name: "Digital Marketing", icon: "📱", count: "600+ Kursus" },
+                                    { name: "Data Science", icon: "📊", count: "400+ Kursus" }
+                                ].map((cat, i) => (
+                                    <div key={i} className="bg-gray-50 p-6 rounded-xl hover:bg-purple-50 hover:border-2 hover:border-purple-200 transition-all cursor-pointer group">
+                                        <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{cat.icon}</div>
+                                        <h3 className="font-bold text-lg mb-2">{cat.name}</h3>
+                                        <p className="text-sm text-gray-500">{cat.count}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Featured Courses */}
+                    <section className="py-20 px-6 bg-gray-50">
+                        <div className="container mx-auto">
+                            <div className="flex justify-between items-end mb-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-2">Kursus Terpopuler</h2>
+                                    <p className="text-gray-500">Dipilih oleh ribuan siswa</p>
+                                </div>
+                                <a href="#" className="text-purple-600 font-bold hover:underline">Lihat Semua →</a>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { title: "Complete React Developer", instructor: "John Doe", rating: 4.9, students: "12.5k", price: "Rp 299rb", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop" },
+                                    { title: "Figma Masterclass", instructor: "Jane Smith", rating: 4.8, students: "8.2k", price: "Rp 199rb", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop" },
+                                    { title: "Python for Data Science", instructor: "Dr. Alex", rating: 4.9, students: "15.3k", price: "Rp 349rb", img: "https://images.unsplash.com/photo-1529107386315-e4a1b72804f8?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((course, i) => (
+                                    <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow cursor-pointer">
+                                        <div className="h-48 overflow-hidden">
+                                            <img src={course.img} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className="font-bold text-lg mb-2">{course.title}</h3>
+                                            <p className="text-sm text-gray-500 mb-4">oleh {course.instructor}</p>
+                                            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                                                <span>⭐ {course.rating}</span>
+                                                <span>👥 {course.students}</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-xl font-bold text-purple-600">{course.price}</span>
+                                                <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-purple-700">
+                                                    Daftar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-20 px-6 bg-purple-600 text-white text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h2 className="text-4xl font-bold mb-6">Siap Memulai Perjalanan Belajar Anda?</h2>
+                            <p className="text-xl text-purple-100 mb-10">
+                                Bergabunglah dengan ribuan siswa yang sudah meningkatkan karier mereka melalui SkillUp.
+                            </p>
+                            <button className="bg-white text-purple-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-purple-50 transition-colors shadow-lg">
+                                Daftar Sekarang - Gratis!
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 bg-gray-900 text-gray-400 text-sm">
+                        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+                            <div>
+                                <div className="text-white font-bold text-lg mb-4">SkillUp</div>
+                                <p>Platform pembelajaran online terpercaya untuk masa depan Anda.</p>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-4">Perusahaan</h4>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-white">Tentang Kami</a></li>
+                                    <li><a href="#" className="hover:text-white">Karir</a></li>
+                                    <li><a href="#" className="hover:text-white">Blog</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-4">Bantuan</h4>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-white">FAQ</a></li>
+                                    <li><a href="#" className="hover:text-white">Kontak</a></li>
+                                    <li><a href="#" className="hover:text-white">Kebijakan Privasi</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-4">Ikuti Kami</h4>
+                                <div className="flex gap-4">
+                                    <a href="#" className="hover:text-white">Instagram</a>
+                                    <a href="#" className="hover:text-white">YouTube</a>
+                                    <a href="#" className="hover:text-white">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<KursusOnline />);
+    </script>
+</body>
+</html>
+

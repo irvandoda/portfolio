@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrewHouse - Specialty Coffee & Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F5F1EB] text-[#3D2817]">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const CafeKopi = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 bg-white/80 backdrop-blur sticky top-0 z-50 border-b border-[#E8DDD0]">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-bold text-[#8B4513] flex items-center gap-2">
+                                <span>☕</span> BrewHouse
+                            </div>
+                            <div className="hidden md:flex gap-8 text-sm font-semibold text-[#5C3A1F]">
+                                <a href="#" className="hover:text-[#8B4513]">Menu</a>
+                                <a href="#" className="hover:text-[#8B4513]">Roastery</a>
+                                <a href="#" className="hover:text-[#8B4513]">Locations</a>
+                                <a href="#" className="hover:text-[#8B4513]">About</a>
+                            </div>
+                            <button className="bg-[#8B4513] text-white px-5 py-2 rounded-lg font-bold hover:bg-[#6B3410] transition-colors">
+                                Order Online
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-20 px-6">
+                        <div className="container mx-auto flex flex-col md:flex-row items-center gap-16">
+                            <div className="md:w-1/2">
+                                <div className="inline-block bg-[#8B4513]/10 text-[#8B4513] px-3 py-1 rounded-full text-xs font-bold mb-6">
+                                    🏆 Award-Winning Roastery
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-[#2C1810]">
+                                    Craft Coffee, <br/> <span className="text-[#8B4513]">Perfect Moments</span>
+                                </h1>
+                                <p className="text-lg text-[#5C3A1F] mb-10 leading-relaxed">
+                                    Single-origin beans, expertly roasted. From espresso to pour-over, every cup tells a story of quality and passion.
+                                </p>
+                                <div className="flex gap-4">
+                                    <button className="bg-[#8B4513] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#6B3410] transition-all">
+                                        View Menu
+                                    </button>
+                                    <button className="bg-white text-[#8B4513] border-2 border-[#E8DDD0] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#F5F1EB] transition-all">
+                                        Find Us
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl shadow-2xl w-full" />
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Menu */}
+                    <section className="py-20 px-6 bg-white">
+                        <div className="container mx-auto">
+                            <h2 className="text-3xl font-bold text-center mb-16">Our Signature Drinks</h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { name: "Espresso Blend", desc: "Our house blend, bold and balanced", price: "$4.50", img: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Cold Brew", desc: "Smooth, 18-hour steeped perfection", price: "$5.50", img: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1000&auto=format&fit=crop" },
+                                    { name: "Cortado", desc: "Espresso with steamed milk, Spanish style", price: "$5.00", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop" }
+                                ].map((drink, i) => (
+                                    <div key={i} className="bg-[#F5F1EB] rounded-2xl overflow-hidden hover:shadow-xl transition-all cursor-pointer group">
+                                        <div className="h-48 overflow-hidden">
+                                            <img src={drink.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div className="p-6">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <h3 className="font-bold text-lg">{drink.name}</h3>
+                                                <span className="text-[#8B4513] font-bold">{drink.price}</span>
+                                            </div>
+                                            <p className="text-sm text-[#5C3A1F]">{drink.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Roastery */}
+                    <section className="py-20 px-6 bg-[#2C1810] text-white">
+                        <div className="container mx-auto flex flex-col md:flex-row gap-16 items-center">
+                            <div className="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl shadow-2xl w-full" />
+                            </div>
+                            <div className="md:w-1/2">
+                                <h2 className="text-4xl font-bold mb-6">In-House Roastery</h2>
+                                <p className="text-white/80 mb-8 leading-relaxed text-lg">
+                                    We source premium beans from sustainable farms worldwide and roast them fresh daily. Every batch is carefully monitored to bring out the unique flavors of each origin.
+                                </p>
+                                <button className="bg-[#8B4513] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#6B3410] transition-colors">
+                                    Visit Roastery
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 bg-white border-t border-[#E8DDD0] text-center text-[#5C3A1F] text-sm">
+                        <div className="container mx-auto px-6">
+                            <p className="font-bold text-[#8B4513] text-lg mb-2">BrewHouse Coffee</p>
+                            <p>&copy; 2024 Specialty Coffee Roasters. Crafted with Care.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<CafeKopi />);
+    </script>
+</body>
+</html>
+

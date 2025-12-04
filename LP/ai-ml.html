@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralAI - AI & Machine Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const AIML = () => {
+            return (
+                <div className="min-h-screen">
+                    {/* Nav */}
+                    <nav className="py-6 px-6 border-b border-gray-800 sticky top-0 bg-[#0a0a0a]/90 backdrop-blur z-50">
+                        <div className="container mx-auto flex justify-between items-center">
+                            <div className="text-2xl font-black text-cyan-400 mono">NeuralAI</div>
+                            <div className="hidden md:flex gap-8 text-sm font-bold text-gray-400">
+                                <a href="#" className="hover:text-cyan-400">Platform</a>
+                                <a href="#" className="hover:text-cyan-400">Models</a>
+                                <a href="#" className="hover:text-cyan-400">Pricing</a>
+                                <a href="#" className="hover:text-cyan-400">Docs</a>
+                            </div>
+                            <button className="bg-cyan-400 text-black px-5 py-2 rounded-lg font-black hover:bg-cyan-300 transition-colors mono">
+                                Get Started
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <header className="py-24 px-6 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-purple-900/20"></div>
+                        <div className="container mx-auto relative z-10 text-center max-w-4xl">
+                            <div className="inline-block bg-cyan-400/10 text-cyan-400 px-4 py-1 rounded-full text-xs font-bold mb-6 mono border border-cyan-400/30">
+                                🤖 Enterprise AI Platform
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                                Build AI-Powered <br/> <span className="text-cyan-400">Applications</span>
+                            </h1>
+                            <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+                                Deploy, scale, and manage machine learning models with ease. From computer vision to NLP, we provide the infrastructure for your AI needs.
+                            </p>
+                            <div className="flex justify-center gap-4">
+                                <button className="bg-cyan-400 text-black px-10 py-4 rounded-lg font-black text-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-400/30">
+                                    Start Building
+                                </button>
+                                <button className="bg-transparent text-white border-2 border-gray-700 px-10 py-4 rounded-lg font-bold text-lg hover:border-cyan-400 hover:text-cyan-400 transition-all">
+                                    View API Docs
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Capabilities */}
+                    <section className="py-24 px-6 bg-[#111]">
+                        <div className="container mx-auto">
+                            <div className="text-center mb-20">
+                                <h2 className="text-4xl font-black mb-4">AI Capabilities</h2>
+                                <p className="text-gray-400">Pre-trained models ready to use</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-12">
+                                {[
+                                    { title: "Computer Vision", desc: "Image recognition, object detection, OCR", icon: "👁️" },
+                                    { title: "Natural Language", desc: "Text analysis, sentiment, translation", icon: "💬" },
+                                    { title: "Predictive Analytics", desc: "Forecasting, recommendations, insights", icon: "📈" },
+                                    { title: "Speech Recognition", desc: "Voice-to-text, transcription, TTS", icon: "🎤" },
+                                    { title: "Anomaly Detection", desc: "Identify outliers and unusual patterns", icon: "🔍" },
+                                    { title: "Custom Models", desc: "Train and deploy your own ML models", icon: "⚙️" }
+                                ].map((cap, i) => (
+                                    <div key={i} className="bg-[#1a1a1a] border border-gray-800 p-8 rounded-lg hover:border-cyan-400/50 transition-all group">
+                                        <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{cap.icon}</div>
+                                        <h3 className="text-xl font-black mb-3">{cap.title}</h3>
+                                        <p className="text-gray-400 leading-relaxed">{cap.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Code Example */}
+                    <section className="py-24 px-6 bg-[#0a0a0a]">
+                        <div className="container mx-auto max-w-4xl">
+                            <h2 className="text-3xl font-black text-center mb-12">Simple Integration</h2>
+                            <div className="bg-[#1a1a1a] border border-gray-800 p-8 rounded-lg">
+                                <pre className="text-cyan-400 mono text-sm overflow-x-auto">
+{`import neuralai
+
+client = neuralai.Client(api_key="your_key")
+
+# Image classification
+result = client.vision.classify(
+    image="photo.jpg",
+    model="resnet50"
+)
+
+print(result.predictions)`}
+                                </pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA */}
+                    <section className="py-24 px-6 bg-gradient-to-r from-cyan-600 to-purple-600 text-center">
+                        <div className="container mx-auto max-w-3xl">
+                            <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Build with AI?</h2>
+                            <p className="text-xl text-cyan-100 mb-10">
+                                Start with our free tier. No credit card required.
+                            </p>
+                            <button className="bg-black text-white px-10 py-4 rounded-lg font-black text-lg hover:bg-gray-900 transition-colors shadow-xl">
+                                Get Started Free
+                            </button>
+                        </div>
+                    </section>
+
+                    <footer className="py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
+                        <div className="container mx-auto px-6">
+                            <p className="mono text-cyan-400 text-lg mb-2">NeuralAI</p>
+                            <p>&copy; 2024 AI Platform. Build the Future.</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<AIML />);
+    </script>
+</body>
+</html>
+
