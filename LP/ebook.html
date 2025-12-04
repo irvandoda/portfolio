@@ -1,108 +1,424 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReactMaster - E-book React Development</title>
+    <title>Ultimate Guide to Digital Success - Ebook Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'Courier New', monospace; }
+        .book-cover {
+            box-shadow: 
+                -15px 0 30px rgba(0,0,0,0.2),
+                0 20px 50px rgba(0,0,0,0.4),
+                5px 5px 10px rgba(0,0,0,0.1);
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: transform 0.5s ease;
+        }
+        .book-cover:hover {
+            transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="bg-blue-50 text-gray-800">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState } = React;
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-        const Ebook = () => {
-            return (
-                <div className="min-h-screen">
-                    <nav className="py-6 px-6 bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-blue-100">
-                        <div className="container mx-auto flex justify-between items-center">
-                            <div className="text-2xl font-bold text-blue-600">ReactMaster</div>
-                            <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-600">
-                                <a href="#" className="hover:text-blue-600">Preview</a>
-                                <a href="#" className="hover:text-blue-600">Reviews</a>
-                                <a href="#" className="hover:text-blue-600">Buy</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-primary text-white p-2 rounded-lg">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">Digital<span class="text-primary">Mastery</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#benefits" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Apa yang Dipelajari</a>
+                    <a href="#preview" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Preview</a>
+                    <a href="#testimonials" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Testimoni</a>
+                    <a href="#pricing" class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/30">
+                        Beli Ebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-indigo-100 rounded-full blur-3xl opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-primary text-sm font-semibold mb-8 animate-fade-in">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Best Seller 2024
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-slate-900">
+                        Kuasai Strategi <br>
+                        <span class="gradient-text">Bisnis Digital</span> dalam 30 Hari
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                        Panduan komprehensif untuk membangun, mengembangkan, dan mengelola bisnis online yang profitable. Berhenti menebak-nebak, mulai hasilkan profit nyata.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <a href="#pricing" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-white px-8 py-4 rounded-xl text-lg font-bold transition-all shadow-xl shadow-primary/30 hover:-translate-y-1">
+                            Dapatkan Akses Sekarang
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#preview" class="flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-xl text-lg font-bold transition-all">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                            Unduh Bab 1 Gratis
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-8 border-t border-slate-200 pt-8">
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900">10k+</p>
+                            <p class="text-sm text-slate-500">Pembaca</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900">4.9/5</p>
+                            <p class="text-sm text-slate-500">Rating</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900">250+</p>
+                            <p class="text-sm text-slate-500">Halaman</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Image -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="relative w-[300px] h-[450px] sm:w-[380px] sm:h-[560px]">
+                        <!-- Book Cover -->
+                        <div class="book-cover absolute inset-0 bg-slate-900 rounded-r-lg rounded-l-sm overflow-hidden">
+                            <div class="h-full w-full bg-gradient-to-br from-slate-800 to-slate-900 p-8 flex flex-col justify-between relative">
+                                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                                <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-r from-white/20 to-transparent"></div>
+                                
+                                <div>
+                                    <p class="text-primary font-bold tracking-widest text-sm mb-2">PREMIUM EDITION</p>
+                                    <h2 class="text-4xl font-bold text-white leading-tight">Digital<br>Business<br>Mastery</h2>
+                                </div>
+                                
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div class="w-12 h-12 bg-slate-700 rounded-full overflow-hidden border-2 border-primary">
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Author" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-bold text-sm">Irvandoda</p>
+                                        <p class="text-slate-400 text-xs">Business Expert</p>
+                                    </div>
+                                </div>
                             </div>
-                            <button className="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
-                                Buy Now
+                        </div>
+                        <!-- Shadow/Reflection -->
+                        <div class="absolute -bottom-12 left-4 right-4 h-8 bg-black/20 blur-xl rounded-[50%] transform scale-x-90"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Bukan Sekadar Teori,<br>Ini Panduan Praktis</h2>
+                <p class="text-slate-600 text-lg">Kami merangkum pengalaman 10 tahun menjadi panduan yang mudah diikuti dan diterapkan oleh siapa saja.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i data-lucide="target" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Strategi Teruji</h3>
+                    <p class="text-slate-600">Metode yang telah divalidasi oleh ratusan studi kasus bisnis yang sukses berkembang.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i data-lucide="trending-up" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Growth Hacking</h3>
+                    <p class="text-slate-600">Teknik mempercepat pertumbuhan user dan revenue dengan biaya marketing minimal.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Community Building</h3>
+                    <p class="text-slate-600">Cara membangun loyal audience yang akan menjadi pelanggan setia produk Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview -->
+    <section id="preview" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Apa Saja Isinya?</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold">01</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Mindset Digital Entrepreneur</h4>
+                                <p class="text-slate-400 text-sm">Membangun fondasi berpikir yang benar sebelum memulai.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold">02</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Validasi Ide Produk</h4>
+                                <p class="text-slate-400 text-sm">Cara mengetahui apakah ide Anda akan laku dijual atau tidak.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold">03</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Funnel Marketing</h4>
+                                <p class="text-slate-400 text-sm">Merancang perjalanan customer dari cold traffic menjadi pembeli.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold">04</span>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Scale Up & Automasi</h4>
+                                <p class="text-slate-400 text-sm">Membuat bisnis berjalan otomatis dan siap untuk scale up.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 blur-3xl"></div>
+                    <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 relative shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
+                        <div class="flex items-center justify-between mb-6 border-b border-slate-700 pb-4">
+                            <h3 class="font-bold text-lg">Chapter 3: The Funnel Blueprint</h3>
+                            <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded">Preview</span>
+                        </div>
+                        <div class="space-y-4 text-slate-300 text-sm font-serif leading-relaxed opacity-80">
+                            <p>"Kesalahan terbesar pemula adalah mencoba menjual produk mahal kepada orang yang baru pertama kali mengenal brand mereka. Ini seperti mengajak menikah pada kencan pertama."</p>
+                            <p>"Value Ladder adalah kunci. Mulailah dengan memberikan value gratis (Lead Magnet), kemudian tawarkan produk dengan harga terjangkau (Tripwire), baru kemudian produk utama Anda (Core Offer)."</p>
+                            <div class="h-32 bg-slate-700/50 rounded-lg flex items-center justify-center">
+                                <span class="text-slate-500 italic">[Diagram Value Ladder]</span>
+                            </div>
+                            <p>"Dengan cara ini, Anda membangun kepercayaan (Trust) secara bertahap..."</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-slate-800 to-transparent flex items-end justify-center pb-6">
+                            <button class="text-primary hover:text-white font-bold text-sm flex items-center gap-1 transition-colors">
+                                Baca Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </button>
                         </div>
-                    </nav>
-
-                    <header className="py-20 px-6 bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
-                        <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
-                            <div className="md:w-1/2">
-                                <div className="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-bold mb-6">
-                                    📚 500+ Pages • Updated 2024
-                                </div>
-                                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                                    Master React <br/> <span className="text-blue-100">From Zero to Hero</span>
-                                </h1>
-                                <p className="text-lg text-blue-100 mb-10">
-                                    Comprehensive guide to React development. Learn hooks, context, performance optimization, and advanced patterns.
-                                </p>
-                                <div className="flex gap-4">
-                                    <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors shadow-xl">
-                                        Buy Now - $49
-                                    </button>
-                                    <button className="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-                                        Read Preview
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="md:w-1/2 relative">
-                                <div className="absolute inset-0 bg-blue-400 rounded-2xl transform rotate-6 opacity-20"></div>
-                                <div className="relative bg-white p-8 rounded-2xl shadow-2xl">
-                                    <div className="bg-gray-900 text-green-400 p-6 rounded-lg mono text-sm">
-                                        <div className="mb-2">const App = () =&gt; {'{'}</div>
-                                        <div className="ml-4 mb-2">const [count, setCount] = useState(0);</div>
-                                        <div className="ml-4 mb-2">return &lt;button onClick={() =&gt; setCount(count + 1)}&gt;</div>
-                                        <div className="ml-8">Count: {`{count}`}</div>
-                                        <div className="ml-4 mb-2">&lt;/button&gt;;</div>
-                                        <div>{'}'};</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    <section className="py-20 px-6 bg-white">
-                        <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-12">What You'll Learn</h2>
-                            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                                {[
-                                    "React Hooks (useState, useEffect, useContext)",
-                                    "State Management & Context API",
-                                    "Performance Optimization",
-                                    "Advanced Patterns & Best Practices",
-                                    "Testing React Applications",
-                                    "Building Production-Ready Apps"
-                                ].map((topic, i) => (
-                                    <div key={i} className="flex items-start gap-4">
-                                        <span className="text-blue-600 text-xl">✓</span>
-                                        <p className="text-gray-700">{topic}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer className="bg-gray-900 text-white py-10 px-6 text-center">
-                        <p>&copy; 2024 ReactMaster. Master React Development.</p>
-                    </footer>
+                    </div>
                 </div>
-            );
-        };
+            </div>
+        </div>
+    </section>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<Ebook />);
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-16">Kata Mereka yang Sudah Baca</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6">"Ebook ini mengubah cara pandang saya tentang bisnis online. Bahasanya ringan tapi isinya daging semua. Omset saya naik 300% dalam 2 bulan!"</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">Rizky Pratama</h5>
+                            <p class="text-slate-500 text-xs">Owner Fashion Brand</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6">"Sangat recommended buat pemula. Step-by-step nya jelas banget. Saya yang tadinya gaptek sekarang sudah punya 2 toko online."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">Sarah Diana</h5>
+                            <p class="text-slate-500 text-xs">Ibu Rumah Tangga</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6">"Investasi leher ke atas terbaik tahun ini. Harganya terlalu murah untuk value yang diberikan. Bab tentang copywriting-nya juara!"</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-slate-900 text-sm">Budi Santoso</h5>
+                            <p class="text-slate-500 text-xs">Mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-primary rounded-3xl p-8 md:p-16 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Mulai Perjalanan Sukses Anda Hari Ini</h2>
+                    <p class="text-blue-100 text-lg mb-10">Dapatkan akses seumur hidup ke ebook "Digital Business Mastery" beserta bonus eksklusifnya.</p>
+                    
+                    <div class="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl mb-8 max-w-md mx-auto transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-sm text-slate-500 uppercase font-bold tracking-widest mb-2">Harga Spesial</div>
+                        <div class="flex justify-center items-baseline gap-2 mb-6">
+                            <span class="text-sm text-slate-400 line-through">Rp 299.000</span>
+                            <span class="text-5xl font-extrabold text-primary">Rp 99.000</span>
+                        </div>
+                        
+                        <ul class="text-left space-y-4 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                                <span>Ebook Digital Business Mastery (PDF)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                                <span>Bonus: 50+ Template Copywriting</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                                <span>Bonus: Checklist Launching Produk</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                                <span>Grup Telegram Support Lifetime</span>
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-primary hover:bg-secondary text-white py-4 rounded-xl font-bold text-lg shadow-lg transition-colors" onclick="alert('Terima kasih! Fitur pembayaran akan segera hadir.')">
+                            Beli Sekarang
+                        </button>
+                        <p class="text-xs text-slate-400 mt-4">Garansi uang kembali 30 hari jika tidak puas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-4 text-white">
+                    <i data-lucide="book-open" class="w-6 h-6 text-primary"></i>
+                    <span class="text-xl font-bold">DigitalMastery</span>
+                </div>
+                <p class="text-sm max-w-xs leading-relaxed">Platform edukasi bisnis digital terpercaya yang telah membantu 10.000+ orang memulai bisnis online mereka.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Produk</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Ebook</a></li>
+                    <li><a href="#" class="hover:text-white">Online Course</a></li>
+                    <li><a href="#" class="hover:text-white">Webinar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Legal</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-sm">
+            &copy; 2024 Irvandoda Portfolio. All rights reserved.
+        </div>
+        <!-- Credit Footer -->
+        <div class="border-t border-slate-700/30 mt-8 pt-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                    <div class="flex-1">
+                        <p class="text-slate-400 text-sm mb-2">
+                            Designed & Developed with <span class="text-red-500">❤️</span> by
+                        </p>
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 text-sm">
+                            <a href="https://irvandoda.my.id" target="_blank" class="text-slate-300 hover:text-purple-400 font-medium transition-colors">
+                                Irvando Demas Arifiandani
+                            </a>
+                            <span class="text-slate-500">•</span>
+                            <a href="https://wa.me/6285747476308" target="_blank" class="text-slate-400 hover:text-green-400 transition-colors">
+                                📱 +62 857 4747 6308
+                            </a>
+                            <span class="text-slate-500">•</span>
+                            <a href="mailto:irvando.d.a@gmail.com" class="text-slate-400 hover:text-blue-400 transition-colors">
+                                ✉️ irvando.d.a@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-xs text-slate-500">
+                        <a href="https://irvandoda.my.id" target="_blank" class="hover:text-purple-400 transition-colors">
+                            irvandoda.my.id
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
     </script>
 </body>
 </html>

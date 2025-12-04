@@ -1,125 +1,13 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modula - Spesialis Kitchen Set</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-        body { font-family: 'Lato', sans-serif; }
-    </style>
-</head>
-<body class="bg-white text-slate-800">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState } = React;
+#!/usr/bin/env python3
+"""
+Script to add missing sections to landing pages
+This will add: Benefit, Preview, Testimonials, and Pricing sections
+"""
+import re
+from pathlib import Path
 
-        const KitchenSet = () => {
-            return (
-                <div className="min-h-screen">
-                    {/* Nav */}
-                    <nav className="py-6 px-6 border-b border-slate-100">
-                        <div className="container mx-auto flex justify-between items-center">
-                            <div className="text-2xl font-bold tracking-wide text-slate-900">MODULA</div>
-                            <div className="hidden md:flex gap-8 text-sm font-bold uppercase tracking-wider text-slate-500">
-                                <a href="#" className="hover:text-slate-900">Gallery</a>
-                                <a href="#" className="hover:text-slate-900">Materials</a>
-                                <a href="#" className="hover:text-slate-900">Process</a>
-                                <a href="#" className="hover:text-slate-900">Contact</a>
-                            </div>
-                            <button className="bg-slate-900 text-white px-6 py-2 text-sm font-bold uppercase tracking-wider hover:bg-slate-700 transition-colors">
-                                Get Quote
-                            </button>
-                        </div>
-                    </nav>
-
-                    {/* Hero */}
-                    <header className="relative h-[600px] flex items-center">
-                        <div className="absolute inset-0 z-0">
-                            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover brightness-50" />
-                        </div>
-                        <div className="container mx-auto px-6 relative z-10 text-white text-center">
-                            <h1 className="text-5xl md:text-7xl font-light mb-6">The Heart of Your Home</h1>
-                            <p className="text-xl text-slate-200 mb-10 max-w-2xl mx-auto font-light">
-                                Custom kitchen cabinets designed for functionality and crafted for beauty. Transform your cooking space today.
-                            </p>
-                            <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-white hover:text-slate-900 transition-all">
-                                View Collection
-                            </button>
-                        </div>
-                    </header>
-
-                    {/* Why Us */}
-                    <section className="py-20 px-6 bg-slate-50">
-                        <div className="container mx-auto">
-                            <div className="grid md:grid-cols-3 gap-12 text-center">
-                                <div>
-                                    <div className="text-4xl mb-4">📐</div>
-                                    <h3 className="text-xl font-bold mb-2">Custom Design</h3>
-                                    <p className="text-slate-500">Tailored to your room dimensions and personal style preferences.</p>
-                                </div>
-                                <div>
-                                    <div className="text-4xl mb-4">💎</div>
-                                    <h3 className="text-xl font-bold mb-2">Premium Materials</h3>
-                                    <p className="text-slate-500">High-quality HPL, solid wood, and durable hardware fittings.</p>
-                                </div>
-                                <div>
-                                    <div className="text-4xl mb-4">⏱️</div>
-                                    <h3 className="text-xl font-bold mb-2">On-Time Delivery</h3>
-                                    <p className="text-slate-500">Professional installation team ensuring quick and clean setup.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Styles */}
-                    <section className="py-20 px-6">
-                        <div className="container mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-16">Kitchen Styles</h2>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                {[
-                                    { title: "Minimalist", img: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?q=80&w=1000&auto=format&fit=crop" },
-                                    { title: "Industrial", img: "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?q=80&w=1000&auto=format&fit=crop" },
-                                    { title: "Scandinavian", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1000&auto=format&fit=crop" }
-                                ].map((style, i) => (
-                                    <div key={i} className="group cursor-pointer relative h-80 overflow-hidden">
-                                        <img src={style.img} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-                                            <h3 className="text-2xl font-bold text-white uppercase tracking-widest border-b-2 border-transparent group-hover:border-white pb-2 transition-all">{style.title}</h3>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Material */}
-                    <section className="py-20 px-6 bg-slate-900 text-white">
-                        <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
-                            <div className="md:w-1/2">
-                                <h2 className="text-4xl font-bold mb-6">Quality You Can Feel</h2>
-                                <p className="text-slate-400 leading-relaxed mb-8">
-                                    We use only the best materials for our kitchen sets. From moisture-resistant plywood to anti-scratch HPL finishes and soft-close hinges. Every detail matters for longevity.
-                                </p>
-                                <ul className="grid grid-cols-2 gap-4 text-sm font-bold text-slate-300">
-                                    <li>• Plywood / Blockboard 18mm</li>
-                                    <li>• HPL Taco / Aica</li>
-                                    <li>• Edging PVC</li>
-                                    <li>• Top Table Granite / Solid Surface</li>
-                                </ul>
-                            </div>
-                            <div className="md:w-1/2">
-                                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop" className="rounded-sm shadow-xl" />
-                            </div>
-                        </div>
-                    </section>
-
-                    
-    <!-- Benefits Section -->
+# Template sections
+BENEFIT_SECTION = '''    <!-- Benefits Section -->
     <section id="benefits" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -156,9 +44,30 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>'''
 
-    <!-- Testimonials Section -->
+PREVIEW_SECTION = '''    <!-- Preview Section -->
+    <section id="preview" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lihat Hasil Kami</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Galeri hasil kerja kami yang telah membantu banyak klien.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="Preview 1" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Preview 2" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Preview 3" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>'''
+
+TESTIMONIALS_SECTION = '''    <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -219,9 +128,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>'''
 
-    <!-- Pricing Section -->
+PRICING_SECTION = '''    <!-- Pricing Section -->
     <section id="pricing" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -285,55 +194,98 @@
                 </div>
             </div>
         </div>
-    </section>
-<footer className="py-12 border-t border-slate-200 text-center text-slate-500 text-sm">
-                        <p>&copy; 2024 Modula Kitchen Studio. Expert Craftsmanship.</p></div>
-                                <div className="text-xs text-gray-400">
-                                    <a href="https://irvandoda.my.id" target="_blank" className="hover:text-purple-600 transition-colors">
-                                        irvandoda.my.id
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                                {/* Credit Footer */}
-                            <div className="border-t border-gray-200/30 mt-8 pt-8">
-                                <div className="container mx-auto px-6">
-                                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                                        <div className="flex-1">
-                                            <p className="text-gray-500 text-sm mb-2">
-                                                Designed & Developed with <span className="text-red-500">❤️</span> by
-                                            </p>
-                                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-sm">
-                                                <a href="https://irvandoda.my.id" target="_blank" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
-                                                    Irvando Demas Arifiandani
-                                                </a>
-                                                <span className="text-gray-400">•</span>
-                                                <a href="https://wa.me/6285747476308" target="_blank" className="text-gray-600 hover:text-green-600 transition-colors">
-                                                    📱 +62 857 4747 6308
-                                                </a>
-                                                <span className="text-gray-400">•</span>
-                                                <a href="mailto:irvando.d.a@gmail.com" className="text-gray-600 hover:text-blue-600 transition-colors">
-                                                    ✉️ irvando.d.a@gmail.com
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="text-xs text-gray-400">
-                                            <a href="https://irvandoda.my.id" target="_blank" className="hover:text-purple-600 transition-colors">
-                                                irvandoda.my.id
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                </div>
-            );
-        };
+    </section>'''
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<KitchenSet />);
-    </script>
-</body>
-</html>
+def has_section(content, section_type):
+    """Check if section exists"""
+    patterns = {
+        'benefit': r'benefit|keuntungan|fitur|feature|kelebihan',
+        'preview': r'preview|gallery|galeri|tampilan|lihat.*hasil',
+        'testimonials': r'testimonial|review|ulasan|kata.*mereka|kata.*klien',
+        'pricing': r'pricing|harga|paket|price|tarif'
+    }
+    pattern = patterns.get(section_type, '')
+    return bool(re.search(pattern, content, re.IGNORECASE)) if pattern else False
+
+def find_insertion_point(content):
+    """Find where to insert new sections (before footer)"""
+    # Try to find footer tag
+    footer_match = re.search(r'(<footer|<section[^>]*id=["\']footer)', content, re.IGNORECASE)
+    if footer_match:
+        return footer_match.start()
+    
+    # Try to find script tag before closing body
+    script_match = re.search(r'(<script|</body>)', content, re.IGNORECASE)
+    if script_match:
+        return script_match.start()
+    
+    # Last resort: before closing body
+    body_match = re.search(r'</body>', content, re.IGNORECASE)
+    if body_match:
+        return body_match.start()
+    
+    return len(content)
+
+def add_missing_sections(file_path):
+    """Add missing sections to HTML file"""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        added = []
+        
+        # Check and add sections
+        if not has_section(content, 'benefit'):
+            insertion_point = find_insertion_point(content)
+            content = content[:insertion_point] + '\n' + BENEFIT_SECTION + '\n' + content[insertion_point:]
+            added.append('benefit')
+        
+        if not has_section(content, 'preview'):
+            insertion_point = find_insertion_point(content)
+            content = content[:insertion_point] + '\n' + PREVIEW_SECTION + '\n' + content[insertion_point:]
+            added.append('preview')
+        
+        if not has_section(content, 'testimonials'):
+            insertion_point = find_insertion_point(content)
+            content = content[:insertion_point] + '\n' + TESTIMONIALS_SECTION + '\n' + content[insertion_point:]
+            added.append('testimonials')
+        
+        if not has_section(content, 'pricing'):
+            insertion_point = find_insertion_point(content)
+            content = content[:insertion_point] + '\n' + PRICING_SECTION + '\n' + content[insertion_point:]
+            added.append('pricing')
+        
+        if added:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"✅ {file_path.name}: Added {', '.join(added)}")
+            return True
+        
+        return False
+    except Exception as e:
+        print(f"❌ Error processing {file_path.name}: {str(e)}")
+        return False
+
+def main():
+    """Main function"""
+    lp_dir = Path('/www/wwwroot/portfolio.irvandoda.my.id/LP')
+    
+    if not lp_dir.exists():
+        print(f"❌ Directory not found: {lp_dir}")
+        return
+    
+    html_files = list(lp_dir.glob('*.html'))
+    total = len(html_files)
+    success = 0
+    
+    print(f"📁 Processing {total} HTML files...\n")
+    
+    for html_file in html_files:
+        if add_missing_sections(html_file):
+            success += 1
+    
+    print(f"\n✨ Done! Updated {success}/{total} files")
+
+if __name__ == '__main__':
+    main()
 
