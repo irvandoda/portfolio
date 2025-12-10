@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        extensions: mbstring, xml, curl
+    
+    - name: Install dependencies
+      run: composer install --no-interaction --prefer-dist
+    
+    - name: Run PHPUnit
+      run: composer test
+      env:
+        WP_TESTS_DIR: /tmp/wordpress-tests-lib
+
+  js:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        cd admin
+        npm install
+    
+    - name: Build
+      run: |
+        cd admin
+        npm run build
+    
+    - name: Run ESLint
+      run: |
+        cd admin
+        npx eslint src/ --ext .js,.jsx || true
+
